@@ -1,5 +1,5 @@
 .movieCard {
-    border: 3px solid black;
+    /* border: 3px solid white; */
     padding: 10px;
 }
 
@@ -7,3 +7,16 @@
 .movieCardPoster {
   width: 20vh;
 }
+
+.movieCardBackDrop {
+  width: 20vh;
+}
+
+h2 {
+  font-family: Neusa,Impact,Helvetica Neue,Arial,Sans-Serif;
+}
+
+p {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
