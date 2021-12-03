@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import movieData from './movieData';
-import Header from './Components/Header'
-import MoviesContainer from './Components/MoviesContainer'
-import MovieCard from './Components/MovieCard'
+import Header from './Components/Header';
+import MoviesContainer from './Components/MoviesContainer';
+
 
 import './App.css';
 

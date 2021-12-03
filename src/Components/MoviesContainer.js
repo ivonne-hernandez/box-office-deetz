@@ -24,5 +24,4 @@ const MoviesContainer = ({ movies }) => {
   )
 }
 
-
-export default MoviesContainer
+export default MoviesContainer;
