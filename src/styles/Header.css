@@ -1,6 +1,6 @@
 .header {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   padding: 20px;
   align-items: center;
 }
@@ -8,6 +8,17 @@
 h1 {
   text-align: start;
   font-size: 51px;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  text-shadow: -4px -2px black;
+}
+
+.clapper {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  height: 100px;
+  width: 100px;
+  justify-self: start;
 }
 
 input {
