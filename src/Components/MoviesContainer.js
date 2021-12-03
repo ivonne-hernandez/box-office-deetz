@@ -3,7 +3,6 @@ import MovieCard from './MovieCard'
 
 const MoviesContainer = ({ movies }) => {
   const movieCards = movies.map(movie => {
-    console.log(movie)
     return (
       <MovieCard 
         title={movie.title}
