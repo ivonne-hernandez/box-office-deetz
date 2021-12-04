@@ -19,6 +19,7 @@ const Modal = ({
     return ReactDOM.createPortal(
       <div className = "modal" title={title}>
         <div className="modal-window">
+          <img src={backdrop} className="modal-backdrop-img"></img>
           <h2>{title}</h2>
           <button onClick={() => toggleModal(false)}>Close</button>
         </div>

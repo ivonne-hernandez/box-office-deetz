@@ -18,7 +18,7 @@ body {
   z-index: 10;
   text-align: center;
   font-size: 40px;
-  color: white;
+  color: black;
   border: solid pink;
   top: 0;
   bottom: 0;
@@ -28,7 +28,7 @@ body {
 
 .modal-window {
   border: solid black;
-  background-color: grey;
+  background-color: white;
   height: 75%;
   width: 75%;
   position: fixed;
@@ -36,4 +36,9 @@ body {
   bottom: 15%;
   left: 15%;
   right: 15%;
+}
+
+.modal-backdrop-img {
+  height: 50%;
+  width: auto;
 }
