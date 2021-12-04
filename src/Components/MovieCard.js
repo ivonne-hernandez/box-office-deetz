@@ -2,7 +2,7 @@ import React from 'react';
 import Modal from './Modal'
 import '../styles/MovieCard.css'
 
-const MovieCard = ({ title, poster, backdrop, averageRating, releaseDate, id, selectedMovie, setSelectedMovie, isModalOpen, toggleModal }) => {
+const MovieCard = ({ title, poster, backdrop, averageRating, releaseDate, overview, genres, budget, revenue, tagline, id, selectedMovie, setSelectedMovie, isModalOpen, toggleModal }) => {
 
   const clickMovie = () => {
     setSelectedMovie(id)
@@ -23,6 +23,11 @@ const MovieCard = ({ title, poster, backdrop, averageRating, releaseDate, id, se
         backdrop={backdrop}
         averageRating={averageRating}
         releaseDate={releaseDate}
+        overview={overview}
+        genres={genres}
+        budget={budget}
+        revenue={revenue}
+        tagline={tagline}
         id={id}
         selectedMovie={selectedMovie}
         isModalOpen={isModalOpen}
