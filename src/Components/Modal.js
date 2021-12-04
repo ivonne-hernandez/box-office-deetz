@@ -2,11 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import '../styles/Modal.css'
 
-const Modal = ({ title, poster, backdrop, averageRating, releaseDate, id, isModalOpen, toggleModal, selectedMovie }) => {
-  if (isModalOpen && id === selectedMovie) {
+const Modal = ({ title, poster, backdrop, averageRating, releaseDate, id, isModalOpen, toggleModal, selectedMovieId }) => {
+  if (isModalOpen && id === selectedMovieId) {
     return ReactDOM.createPortal(
       <div className="Modal" onClick={() => toggleModal(false)}>
-       {selectedMovie} 
+       {selectedMovieId} 
       </div>,
       document.getElementById('modal-container')
     )
