@@ -18,9 +18,10 @@ const Modal = ({
   if (isModalOpen && selectedMovie === id) {
     return ReactDOM.createPortal(
       <div className = "modal" title={title}>
-        <h2>{title}</h2>
-        <button onClick={() => toggleModal(false)}>Close</button>
-
+        <div className="modal-window">
+          <h2>{title}</h2>
+          <button onClick={() => toggleModal(false)}>Close</button>
+        </div>
       </div>,
       document.getElementById('modal-container')
     )
