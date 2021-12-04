@@ -10,15 +10,23 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      movies: movieData.movies
+      movies: movieData.movies,
+      selectedMovie: null
     }
   }
+
+  setSelectedMovie = (id) => {
+    this.setState({selectedMovie: id})
+    console.log(this.state.selectedMovie)
+
+  }
+
 
   render() {
     return (
       <div className="App">
         <Header />
-        <MoviesContainer movies={this.state.movies} />
+        <MoviesContainer movies={this.state.movies} selectedMovie={this.state.selectedMovie} setSelectedMovie={this.setSelectedMovie}/>
       </div>
     );
   }
