@@ -6,20 +6,15 @@ body {
   position: fixed;
   top: 0;
   background-color: rgba(1,1,1,0.5);
-  border: solid pink;
-
 }
 
 .modal {
-  /* height: 50%; */
-  /* background-color: white; */
   height: 100vh;
   width: 100vw;
   z-index: 10;
   text-align: center;
   font-size: 40px;
   color: black;
-  border: solid pink;
   top: 0;
   bottom: 0;
   left: 0;
@@ -27,7 +22,6 @@ body {
 }
 
 .modal-window {
-  border: solid black;
   background-color: white;
   height: 75%;
   width: 75%;
@@ -39,6 +33,12 @@ body {
 }
 
 .modal-backdrop-img {
-  height: 50%;
-  width: auto;
+  /* height: 100%; */
+  width: 20vh;
+  object-fit: cover;
+  /* opacity: 0.35; */
+}
+
+.modal-poster {
+  width: 20vh;
 }
