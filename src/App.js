@@ -17,8 +17,6 @@ class App extends Component {
 
   setSelectedMovie = (id) => {
     this.setState({selectedMovie: id})
-    console.log(this.state.selectedMovie)
-
   }
 
 
