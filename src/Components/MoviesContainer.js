@@ -3,7 +3,7 @@ import MovieCard from './MovieCard'
 
 import '../styles/MoviesContainer.css'
 
-const MoviesContainer = ({ movies }) => {
+const MoviesContainer = ({ movies, selectedMovie, setSelectedMovie, isModalOpen, toggleModal }) => {
   const movieCards = movies.map(movie => {
     return (
       <MovieCard
@@ -14,6 +14,10 @@ const MoviesContainer = ({ movies }) => {
         releaseDate={movie.release_date}
         id={movie.id}
         key={movie.id}
+        selectedMovie={selectedMovie}
+        setSelectedMovie={setSelectedMovie}
+        isModalOpen={isModalOpen}
+        toggleModal={toggleModal}
       />
     )
   });
