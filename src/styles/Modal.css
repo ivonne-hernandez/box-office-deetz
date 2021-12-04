@@ -1,0 +1,19 @@
+body {
+  position: relative;
+}
+
+#modal-container {
+  position: absolute;
+  top: 0;
+  background-color: rgba(1,1,1,0.5);
+  border: solid pink
+}
+
+.modal {
+
+  z-index: 10;
+  text-align: center;
+  font-size: 40px;
+  color: white;
+  border: solid pink
+}

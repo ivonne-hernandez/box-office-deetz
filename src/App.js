@@ -11,7 +11,8 @@ class App extends Component {
     super();
     this.state = {
       movies: movieData.movies,
-      selectedMovie: null
+      selectedMovie: null,
+      isModalOpen: false,
     }
   }
 
@@ -19,12 +20,22 @@ class App extends Component {
     this.setState({selectedMovie: id})
   }
 
+  toggleModal = (bool) => {
+    this.setState({isModalOpen: bool})
+  }
+
 
   render() {
     return (
       <div className="App">
         <Header />
-        <MoviesContainer movies={this.state.movies} selectedMovie={this.state.selectedMovie} setSelectedMovie={this.setSelectedMovie}/>
+        <MoviesContainer
+        movies={this.state.movies}
+        selectedMovie={this.state.selectedMovie}
+        isModalOpen={this.state.isModalOpen}
+        setSelectedMovie={this.setSelectedMovie}
+        toggleModal={this.toggleModal}
+        />
       </div>
     );
   }
