@@ -37,13 +37,13 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        {this.state.isLoading && <div>Loading...</div>}
-        {!this.state.isLoading && <MoviesContainer
-        movies={this.state.movies}
-        selectedMovie={this.state.selectedMovie}
-        isModalOpen={this.state.isModalOpen}
-        setSelectedMovie={this.setSelectedMovie}
-        toggleModal={this.toggleModal}
+          {this.state.isLoading && <div>Loading...</div>}
+          {!this.state.isLoading && <MoviesContainer
+          movies={this.state.movies}
+          selectedMovie={this.state.selectedMovie}
+          isModalOpen={this.state.isModalOpen}
+          setSelectedMovie={this.setSelectedMovie}
+          toggleModal={this.toggleModal}
         />}
       </div>
     );
