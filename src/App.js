@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // import movieData from './movieData';
 import Header from './Components/Header';
 import MoviesContainer from './Components/MoviesContainer';
+import Modal from './Components/Modal'
 import { fetchAllMovies } from './api-Calls'
 
 
@@ -45,6 +46,13 @@ class App extends Component {
           setSelectedMovie={this.setSelectedMovie}
           toggleModal={this.toggleModal}
         />}
+        {this.state.isModalOpen && this.state.selectedMovie ?
+          <Modal
+          selectedMovie={this.state.selectedMovie}
+          toggleModal={this.toggleModal}
+          />
+          : null
+        }
       </div>
     );
   }
