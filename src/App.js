@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import movieData from './movieData';
+// import movieData from './movieData';
 import Header from './Components/Header';
 import MoviesContainer from './Components/MoviesContainer';
+import fetchAllMovies from './api-Calls'
 
 
 import './App.css';
@@ -10,11 +11,17 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      movies: movieData.movies,
+      movies: [],
       selectedMovie: null,
       isModalOpen: false,
     }
   }
+
+  componentDidMount = () => {
+    fetchAllMovies()
+    .then((data) => this.setState({movies: data.movies}))
+  }
+
 
   setSelectedMovie = (id) => {
     this.setState({selectedMovie: id})
