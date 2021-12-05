@@ -14,12 +14,13 @@ class App extends Component {
       movies: [],
       selectedMovie: null,
       isModalOpen: false,
+      isLoading: true
     }
   }
 
   componentDidMount = () => {
     fetchAllMovies()
-    .then((data) => this.setState({movies: data.movies}))
+      .then((data) => this.setState({movies: data.movies, isLoading: false}))
   }
 
 
@@ -36,13 +37,14 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <MoviesContainer
-        movies={this.state.movies}
-        selectedMovie={this.state.selectedMovie}
-        isModalOpen={this.state.isModalOpen}
-        setSelectedMovie={this.setSelectedMovie}
-        toggleModal={this.toggleModal}
-        />
+          {this.state.isLoading && <div>Loading...</div>}
+          {!this.state.isLoading && <MoviesContainer
+          movies={this.state.movies}
+          selectedMovie={this.state.selectedMovie}
+          isModalOpen={this.state.isModalOpen}
+          setSelectedMovie={this.setSelectedMovie}
+          toggleModal={this.toggleModal}
+        />}
       </div>
     );
   }

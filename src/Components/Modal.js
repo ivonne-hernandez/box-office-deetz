@@ -20,24 +20,29 @@ const Modal = ({
   toggleModal
 }) => {
   const myStyle = {
-    background: backdrop
+    backgroundImage: `url(${backdrop})`
   }
 
   if (isModalOpen && selectedMovie === id) {
     return ReactDOM.createPortal(
-      <div className = "modal" title={title}>
-        <article className="modal-window" style={myStyle}>
-          <img src={backdrop} className="modal-backdrop-img" alt={title} />
-          <img src={poster} alt={title + ` poster`} className="modal-poster"/>
-          <h2>{title}</h2>
-          <p>Average Rating: {Number(averageRating.toFixed(2))} / 10</p>
-          <p>Release Date: {releaseDate}</p>
-          <p>Overview: {overview}</p>
-          <p>Genres: {genres}</p>
-          <p>Budget: {budget}</p>
-          <p>Revenue: {revenue}</p>
-          <p>Tagline: {tagline}</p>
-          <button onClick={() => toggleModal(false)}>Close</button>
+      <div className="modal">
+          <article className="modal-window">
+            <div className="modal-backdrop-img" style={myStyle}>
+            </div>
+            <img src={poster} alt={title + ` poster`} className="modal-poster"/>
+            <div className="modal-poster movie-content">
+              <div className="modal-title">
+                <h3>{title}</h3>
+              </div>
+              <p className="modal-p"><b>Average Rating:</b> {Number(averageRating.toFixed(2))} / 10</p>
+              <p className="modal-p"><b>Release Date:</b> {releaseDate}</p>
+              <p className="modal-p"><b>Overview:</b> {overview}</p>
+              <p className="modal-p"><b>Genres:</b> {genres}</p>
+              <p className="modal-p"><b>Budget:</b> {budget}</p>
+              <p className="modal-p"><b>Revenue:</b> {revenue}</p>
+              <p className="modal-p"><b>Tagline:</b> {tagline}</p>
+              <button onClick={() => toggleModal(false)}>Close</button>
+            </div>
         </article>
       </div>,
       document.getElementById('modal-container')
