@@ -10,13 +10,14 @@ const MovieCard = ({ title, poster, backdrop, averageRating, releaseDate, overvi
   }
 
   return (
-    <>
+    // <>
       <article className="movieCard" onClick={() => clickMovie()}>
         {<img src={poster} alt={ title + ` poster`} className='movieCardPoster'/>}
         <h2>{title}</h2>
         <p>Average Rating: {Number(averageRating.toFixed(2))} / 10</p>
         <p>Release Date: {releaseDate}</p>
       </article>
+<<<<<<< HEAD
       {this.props.isModalOpen && this.props.selectedMovie === id &&
           <Modal
             // title={title}
@@ -36,6 +37,25 @@ const MovieCard = ({ title, poster, backdrop, averageRating, releaseDate, overvi
             />
       }
     </>
+=======
+      // <Modal
+      //   title={title}
+      //   poster={poster}
+      //   backdrop={backdrop}
+      //   averageRating={averageRating}
+      //   releaseDate={releaseDate}
+      //   overview={overview}
+      //   genres={genres}
+      //   budget={budget}
+      //   revenue={revenue}
+      //   tagline={tagline}
+      //   id={id}
+      //   selectedMovie={selectedMovie}
+      //   isModalOpen={isModalOpen}
+      //   toggleModal={toggleModal}
+      //   />
+    // </>
+>>>>>>> 315b301 (Adjust props syntax in Modal.js)
   )
 }
 

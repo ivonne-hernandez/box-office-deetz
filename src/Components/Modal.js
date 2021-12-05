@@ -4,7 +4,13 @@ import { fetchSingleMovie } from '../api-Calls';
 
 import '../styles/Modal.css'
 
+<<<<<<< HEAD
 class Modal extends Component {
+=======
+import { fetchSingleMovie } from '../api-Calls'
+
+class Modal extends React.Component {
+>>>>>>> 315b301 (Adjust props syntax in Modal.js)
   constructor(props) {
     super(props);
     this.state = {
@@ -13,7 +19,11 @@ class Modal extends Component {
       poster: null,
       backdrop: null,
       averageRating: null,
+<<<<<<< HEAD
       releaseDate: null, 
+=======
+      releaseDate: null,
+>>>>>>> 315b301 (Adjust props syntax in Modal.js)
       overview: null,
       genres: null,
       budget: null,
@@ -42,6 +52,7 @@ class Modal extends Component {
   //any props passed down can be called using this.props
   //id (?), selectedMovie, isModalOpen, toggleModal maybe needed since this component changes their state
 
+<<<<<<< HEAD
  
   render = (id) => {
     // const myStyle = {
@@ -75,6 +86,32 @@ class Modal extends Component {
     //   return null;
     // }
   }
+=======
+
+componentDidMount = () => {
+  fetchSingleMovie(this.state.movie)
+}
+
+render = () => {
+
+  if (this.props.isModalOpen && this.props.selectedMovie === this.props.id) {
+    return ReactDOM.createPortal(
+      <div className = "modal" title={this.props.title}>
+        <div className="modal-window">
+          <img src={this.props.backdrop} className="modal-backdrop-img"></img>
+          <h2>{this.props.title}</h2>
+          <p>TagLine</p>
+
+          <button onClick={() => this.props.toggleModal(false)}>Close</button>
+        </div>
+      </div>,
+      document.getElementById('modal-container')
+    )
+  } else {
+    return null;
+  }
+}
+>>>>>>> 315b301 (Adjust props syntax in Modal.js)
 
 }
 export default Modal;
