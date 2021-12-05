@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // import movieData from './movieData';
 import Header from './Components/Header';
 import MoviesContainer from './Components/MoviesContainer';
-import fetchAllMovies from './api-Calls'
+import { fetchAllMovies } from './api-Calls'
 
 
 import './App.css';
