@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-// import movieData from './movieData';
 import Header from './Components/Header';
 import MoviesContainer from './Components/MoviesContainer';
-import fetchAllMovies from './api-Calls'
-
-
+import Modal from './Components/Modal';
+import { fetchAllMovies } from './api-Calls';
 import './App.css';
 
 class App extends Component {
@@ -20,31 +18,37 @@ class App extends Component {
 
   componentDidMount = () => {
     fetchAllMovies()
-      .then((data) => this.setState({movies: data.movies, isLoading: false}))
+      .then(data => this.setState({ movies: data.movies, isLoading: false }))
   }
 
 
   setSelectedMovie = (id) => {
-    this.setState({selectedMovie: id})
+    this.setState({ selectedMovie: id });
   }
 
   toggleModal = (bool) => {
-    this.setState({isModalOpen: bool})
+    this.setState({ isModalOpen: bool });
   }
-
 
   render = () => {
     return (
       <div className="App">
         <Header />
-          {this.state.isLoading && <div>Loading...</div>}
-          {!this.state.isLoading && <MoviesContainer
-          movies={this.state.movies}
-          selectedMovie={this.state.selectedMovie}
-          isModalOpen={this.state.isModalOpen}
-          setSelectedMovie={this.setSelectedMovie}
-          toggleModal={this.toggleModal}
-        />}
+        {this.state.isLoading && <div>Loading...</div>}
+        {!this.state.isLoading && 
+          <MoviesContainer movies={this.state.movies}
+            selectedMovie={this.state.selectedMovie}
+            isModalOpen={this.state.isModalOpen}
+            setSelectedMovie={this.setSelectedMovie}
+            toggleModal={this.toggleModal}
+          />}
+        {this.state.isModalOpen && this.state.selectedMovie ?
+          <Modal
+            selectedMovie={this.state.selectedMovie}
+            toggleModal={this.toggleModal}
+          />
+          : null
+        }
       </div>
     );
   }

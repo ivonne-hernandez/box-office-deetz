@@ -1,57 +1,60 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import '../styles/Modal.css';
+import { fetchSingleMovie } from '../api-Calls';
 
-import '../styles/Modal.css'
-
-const Modal = ({
-  title,
-  poster,
-  backdrop,
-  averageRating,
-  releaseDate,
-  overview,
-  genres,
-  budget, 
-  revenue, 
-  tagline,
-  id,
-  selectedMovie,
-  isModalOpen,
-  toggleModal
-}) => {
-  const myStyle = {
-    backgroundImage: `url(${backdrop})`
+class Modal extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      movie: null,
+      isModalLoading: true,
+    }
   }
 
-  if (isModalOpen && selectedMovie === id) {
-    return ReactDOM.createPortal(
-      <div className="modal">
+componentDidMount = () => {
+  fetchSingleMovie(this.props.selectedMovie)
+    .then(data => this.setState({
+      movie: data.movie,
+      isModalLoading: false
+    }))
+}
+
+
+render = () => {
+  if (this.state.movie && !this.state.isModalLoading) {
+    const myStyle = {
+      backgroundImage: `url(${this.state.movie.backdrop_path})`
+    }
+    return (
+      <div className="modal-container">
+        <div className="modal">
           <article className="modal-window">
             <div className="modal-backdrop-img" style={myStyle}>
             </div>
-            <img src={poster} alt={title + ` poster`} className="modal-poster"/>
+            <img src={this.state.movie.poster_path} alt={this.state.movie.title + ` poster`} className="modal-poster"/>
             <div className="modal-poster movie-content">
               <div className="modal-title">
-                <h3>{title}</h3>
+                <h3>{this.state.movie.title}</h3>
               </div>
-              <p className="modal-p"><b>Average Rating:</b> {Number(averageRating.toFixed(2))} / 10</p>
-              <p className="modal-p"><b>Release Date:</b> {releaseDate}</p>
-              <p className="modal-p"><b>Overview:</b> {overview}</p>
-              <p className="modal-p"><b>Genres:</b> {genres}</p>
-              <p className="modal-p"><b>Budget:</b> {budget}</p>
-              <p className="modal-p"><b>Revenue:</b> {revenue}</p>
-              <p className="modal-p"><b>Tagline:</b> {tagline}</p>
-              <button onClick={() => toggleModal(false)}>Close</button>
+              <p className="modal-p"><b>Average Rating:</b> {this.state.movie.average_rating} / 10</p>
+              <p className="modal-p"><b>Release Date:</b> {this.state.movie.release_date}</p>
+              <p className="modal-p"><b>Overview:</b> {this.state.movie.overview}</p>
+              <p className="modal-p"><b>Genres:</b> {this.state.movie.genres}</p>
+              <p className="modal-p"><b>Budget:</b> {this.state.movie.budget}</p>
+              <p className="modal-p"><b>Revenue:</b> {this.state.movie.revenue}</p>
+              <p className="modal-p"><b>Tagline:</b> {this.state.movie.tagline}</p>
+              <button onClick={() => this.props.toggleModal(false)}>Close</button>
             </div>
-        </article>
-      </div>,
-      document.getElementById('modal-container')
+          </article>
+        </div>
+      </div>
     )
   } else {
     return null;
   }
-
+}
 
 }
 
-export default Modal
+export default Modal;
