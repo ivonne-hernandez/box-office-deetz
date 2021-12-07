@@ -26,7 +26,7 @@ render = () => {
     const myStyle = {
       backgroundImage: `url(${this.state.movie.backdrop_path})`
     }
-    return ReactDOM.createPortal(
+    return (
       <div className="modal">
         <article className="modal-window">
           <div className="modal-backdrop-img" style={myStyle}>
@@ -46,8 +46,7 @@ render = () => {
             <button onClick={() => this.props.toggleModal(false)}>Close</button>
           </div>
         </article>
-      </div>,
-      document.getElementById('modal-container')
+      </div>
     )
   } else {
     return null;
