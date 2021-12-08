@@ -4,16 +4,22 @@ describe('Box Office Deetz Test', () => {
         cy.visit('http://localhost:3000');
     });
 
-    it('Should contain the name of the application', () => {
-        cy.contains('Box Office Deetz')
+    it('the header should contain the name of the application and the clapper logo image', () => {
+        cy.get('div[class="header"]')
+        .get('img')
+        .get('h1[class="headerTitle"]')
+        .contains('Box Office Deetz')
     });
 
     it('should be able to display cards on the dashboard representing each movie in the database', () => {
         cy.get('article[class="movieCard"]')
     })
 
-    it('should be able to click on a given card and view its details', () => {
-        cy.get('article[key="337401"]')
-    })
+    // it('should be able to click on a given card and view its details', () => {
+    //     cy.get('article[key="337401"]')
+    // })
+
+    //
+
 
 });
