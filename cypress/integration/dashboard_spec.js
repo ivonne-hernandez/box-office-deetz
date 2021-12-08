@@ -20,6 +20,16 @@ describe('Box Office Deetz Test', () => {
         .siblings('p[class="movieCardReleaseDate"]')
     })
 
+
+    // it('should be able to fill the movie card container based on a successful network request', () => {
+    //     cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
+    //         statusCode: 200,
+    //         body: {
+    //             movies: 
+    //         }
+    //     })
+    // })
+
     // it('should be able to click on a given card and view its details', () => {
     //     cy.get('article[key="337401"]')
     // })

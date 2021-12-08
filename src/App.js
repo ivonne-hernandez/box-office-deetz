@@ -34,9 +34,20 @@ class App extends Component {
   }
 
 
+  // this function is purely for testing what the response looks like. This can 100% be removed as soon as we know what
+  // the response looks and acts like so we can mimic it for our Cypress intercept tests
+  // also remove line 50 in the render method. 
+  testFunction = () => {
+    return fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
+    // .then((response) => response.json())
+    .then((response) => console.log(response))
+  }
+
+
   render = () => {
     return (
       <div className="App">
+        <button onClick={() => this.testFunction()}>CLICK</button>
         <Header />
           {this.state.isLoading && <div>Loading...</div>}
           {!this.state.isLoading && <MoviesContainer
