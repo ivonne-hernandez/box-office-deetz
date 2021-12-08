@@ -1,5 +1,5 @@
 const fetchAllMovies = () => {
-  return fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies/:movie_694919/videos')
+  return fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
     .then((response) => response.json())
 }
 

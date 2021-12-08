@@ -18,9 +18,8 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies/:movie_694919/videos')
+    fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
       .then((response) => {
-        // console.log(response)
         if (response.status === 500) {
           this.setState({ error: response.statusText })
         } else {
@@ -29,7 +28,9 @@ class App extends Component {
       }
       )
       .then(data => {
-        this.setState({ movies: data.movies, isLoading: false })
+        if (!this.state.error) {
+          this.setState({ movies: data.movies, isLoading: false })
+        }
       })
       // .catch((error) => {
       //   console.log(`this.state.isLoading`, this.state.isLoading)
@@ -48,9 +49,9 @@ class App extends Component {
 
   render = () => {
     return (
-      {if (this.state.error !== null) {
+      this.state.error !== null ?
         <p>Error: ${this.state.error}</p>
-      } else {
+      :
         <div className="App">
           <Header />
           {this.state.isLoading && <div>Loading...</div>}
@@ -69,7 +70,6 @@ class App extends Component {
             : null
           }
         </div>
-      }}
     )
   }
 
