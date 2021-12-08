@@ -11,6 +11,12 @@ describe('Box Office Deetz Test', () => {
         .contains('Box Office Deetz')
     });
 
+    it('should have a container component for all movie cards', () => {
+        cy.get('main[class="movieContainer"]')
+        .children('article[class="movieCard"]')
+    })
+
+
     it('should be able to display cards on the dashboard representing each movie in the database', () => {
         cy.get('article[class="movieCard"]')
     })
