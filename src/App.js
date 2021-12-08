@@ -4,6 +4,7 @@ import MoviesContainer from './Components/MoviesContainer';
 import Modal from './Components/Modal';
 import { fetchAllMovies } from './api-Calls';
 import './App.css';
+import thisIsFire from './styles/thisIsFire.gif';
 
 class App extends Component {
   constructor() {
@@ -39,7 +40,11 @@ class App extends Component {
   render = () => {
     return (
       this.state.error !== null ?
-        <div>Error: {this.state.error}</div>
+        <div className="error-display">
+          <img src={thisIsFire} alt="this is fine gif" className="dog-gif"/>
+          <p><b>Error:</b> {this.state.error}</p>
+          <p>Please refresh your browser.</p>
+        </div>
       :
         <div className="App">
           <Header />
