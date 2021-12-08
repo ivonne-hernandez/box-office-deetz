@@ -14,11 +14,10 @@ describe('Box Office Deetz Test', () => {
     it('should have a container component for all movie cards', () => {
         cy.get('main[class="movieContainer"]')
         .children('article[class="movieCard"]')
-    })
-
-
-    it('should be able to display cards on the dashboard representing each movie in the database', () => {
-        cy.get('article[class="movieCard"]')
+        .children('img')
+        .siblings('h2')
+        .siblings('p[class="movieCardRating"]')
+        .siblings('p[class="movieCardReleaseDate"]')
     })
 
     // it('should be able to click on a given card and view its details', () => {

@@ -12,8 +12,8 @@ const MovieCard = ({ title, poster, backdrop, averageRating, releaseDate, overvi
       <article className="movieCard" onClick={() => clickMovie()}>
         {<img src={poster} alt={ title + ` poster`} className='movieCardPoster'/>}
         <h2>{title}</h2>
-        <p>Average Rating: {Number(averageRating.toFixed(2))} / 10</p>
-        <p>Release Date: {releaseDate}</p>
+        <p className="movieCardRating">Average Rating: {Number(averageRating.toFixed(2))} / 10</p>
+        <p className="movieCardReleaseDate">Release Date: {releaseDate}</p>
       </article>
   )
 }
