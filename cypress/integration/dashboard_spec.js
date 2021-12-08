@@ -12,4 +12,8 @@ describe('Box Office Deetz Test', () => {
         cy.get('article[class="movieCard"]')
     })
 
+    it('should be able to click on a given card and view its details', () => {
+        cy.get('article[key="337401"]')
+    })
+
 });
