@@ -1,7 +1,6 @@
 const fetchAllMovies = () => {
-  return fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
+  return fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies/:movie_694919/videos')
     .then((response) => response.json())
-    .catch((err) => console.log(err))
 }
 
 const fetchSingleMovie = (id) => {
