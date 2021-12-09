@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Modal from './Components/Modal';
-import ModalContainer from './Components/ModalContainer';
+import MovieDetails from './Components/MovieDetails';
+import MovieDetailContainer from './Components/MovieDetailContainer';
 import { fetchAllMovies } from './api-Calls';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
@@ -44,7 +44,7 @@ class App extends Component {
   
         /> 
         :
-        <Modal
+        <MovieDetailContainer
         selectedMovie={this.state.selectedMovie}
         toggleModal={this.toggleModal}
         />
