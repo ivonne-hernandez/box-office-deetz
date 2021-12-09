@@ -10,7 +10,6 @@ const Home = ({ movies, selectedMovie, isModalOpen, isLoading, setSelectedMovie,
   } else {
     return (
       <div>
-        <Header />
         <MoviesContainer movies={movies}
           selectedMovie={selectedMovie}
           isModalOpen={isModalOpen}

@@ -1,11 +1,15 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 import '../styles/MovieCard.css'
 
 const MovieCard = ({ title, poster, backdrop, averageRating, releaseDate, overview, genres, budget, revenue, tagline, id, selectedMovie, setSelectedMovie, isModalOpen, toggleModal }) => {
 
+  let navigate = useNavigate()
+
   const clickMovie = () => {
     setSelectedMovie(id)
     toggleModal(true)
+    navigate("/test")
   }
 
   return (

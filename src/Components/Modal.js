@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import '../styles/Modal.css';
 import { fetchSingleMovie } from '../api-Calls';
+import { useParams } from 'react-router-dom';
 
 class Modal extends React.Component {
   constructor() {

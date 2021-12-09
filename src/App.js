@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import Modal from './Components/Modal';
+import ModalContainer from './Components/ModalContainer';
 import { fetchAllMovies } from './api-Calls';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Home from './Components/Home';
+import Header from './Components/Header';
 
 class App extends Component {
   constructor() {
@@ -32,16 +34,18 @@ class App extends Component {
   render = () => {
     return (
       <div className="App">
+        <Header />
         <Routes>
-          <Route path="/" element={<Home movies={this.state.movies} selectedMovie={this.state.selectedMovie} isModalOpen={this.state.isModalOpen} isLoading={this.state.isLoading} setSelectedMovie={this.setSelectedMovie} toggleModal={this.toggleModal} />} />
+          <Route path="/" element={<Home movies={this.state.movies} selectedMovie={this.state.selectedMovie} isModalOpen={this.state.isModalOpen} isLoading={this.state.isLoading} setSelectedMovie={this.setSelectedMovie} toggleModal={this.toggleModal} />}/>
+          <Route path="/test" element=
+            {
+            <>
+            <ModalContainer isModalOpen={this.state.isModalOpen} selectedMovie={this.state.selectedMovie} toggleModal={this.toggleModal} /> 
+            <Home movies={this.state.movies} selectedMovie={this.state.selectedMovie} isModalOpen={this.state.isModalOpen} isLoading={this.state.isLoading} setSelectedMovie={this.setSelectedMovie} toggleModal={this.toggleModal}/>
+            </>
+            }/>
         </Routes> 
-        {this.state.isModalOpen && this.state.selectedMovie ?
-          <Modal
-            selectedMovie={this.state.selectedMovie}
-            toggleModal={this.toggleModal}
-          />
-          : null
-        }
+        
       </div>
     );
   }
