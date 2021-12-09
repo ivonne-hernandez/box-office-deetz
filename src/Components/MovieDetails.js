@@ -1,8 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import '../styles/Modal.css';
 import { fetchSingleMovie } from '../api-Calls';
-import { useParams } from 'react-router-dom';
 
 class MovieDetails extends React.Component {
   constructor() {
@@ -20,7 +18,6 @@ componentDidMount = () => {
       isLoading: false
     }))
 }
-
 
 render = () => {
   if (this.state.movie && !this.state.isLoading) {
@@ -45,7 +42,7 @@ render = () => {
               <p className="modal-p"><b>Budget:</b> {this.state.movie.budget}</p>
               <p className="modal-p"><b>Revenue:</b> {this.state.movie.revenue}</p>
               <p className="modal-p"><b>Tagline:</b> {this.state.movie.tagline}</p>
-              <button onClick={() => this.props.resetSelectedMovie()}>Close</button>
+              <button onClick={() => this.props.closeMovieDetails()}>Close</button>
             </div>
           </article>
         </div>
