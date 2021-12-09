@@ -9,7 +9,7 @@ const MovieCard = ({ title, poster, backdrop, averageRating, releaseDate, overvi
   const clickMovie = () => {
     setSelectedMovie(id)
     toggleModal(true)
-    navigate("/test")
+    // navigate("/test")
   }
 
   return (
