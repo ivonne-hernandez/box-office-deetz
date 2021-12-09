@@ -34,14 +34,19 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        {!this.state.selectedMovie ? <Home
-        movies={this.state.movies}
-        selectedMovie={this.state.selectedMovie}
-        isLoading={this.state.isLoading}
-        setSelectedMovie={this.setSelectedMovie}
-        resetSelectedMovie={this.resetSelectedMovie}
-  
-        /> 
+        {!this.state.selectedMovie ? 
+        <Routes>
+          <Route path="/" element={
+            <Home 
+              movies={this.state.movies} 
+              selectedMovie={this.state.selectedMovie} 
+              isLoading={this.state.isLoading} 
+              setSelectedMovie={this.setSelectedMovie} 
+              resetSelectedMovie={this.resetSelectedMovie} 
+            />
+            }
+            />
+        </Routes> 
         :
         <MovieDetailContainer
         selectedMovie={this.state.selectedMovie}
@@ -57,9 +62,7 @@ class App extends Component {
 }
 
 // coming back to this when we return to implementing Router - valid Route path for homepage.
-// {/* <Routes>
-//  <Route path="/" element={<Home movies={this.state.movies} selectedMovie={this.state.selectedMovie} isLoading={this.state.isLoading} setSelectedMovie={this.setSelectedMovie} resetSelectedMovie={this.resetSelectedMovie} />}/>
-// </Routes>  */}
+
 
 
 export default App;
