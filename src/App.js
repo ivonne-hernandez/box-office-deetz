@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import MovieDetails from './Components/MovieDetails';
-import MovieDetailsContainer from './Components/MovieDetailsContainer';
-import { fetchAllMovies } from './api-Calls';
-import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Home from './Components/Home';
 import Header from './Components/Header';
+import MovieDetailsContainer from './Components/MovieDetailsContainer';
+import { fetchAllMovies } from './api-Calls';
+import './App.css';
 
 class App extends Component {
   constructor() {
@@ -38,10 +37,8 @@ class App extends Component {
           <Route path="/" element={
             <Home 
               movies={this.state.movies} 
-              selectedMovie={this.state.selectedMovie} 
               isLoading={this.state.isLoading} 
               setSelectedMovie={this.setSelectedMovie} 
-              resetSelectedMovie={this.resetSelectedMovie} 
             />
           }
           />
@@ -58,9 +55,5 @@ class App extends Component {
   }
 
 }
-
-// coming back to this when we return to implementing Router - valid Route path for homepage.
-
-
 
 export default App;
