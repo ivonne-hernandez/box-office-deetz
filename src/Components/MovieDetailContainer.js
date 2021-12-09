@@ -1,15 +1,14 @@
-import React from 'react'
-import MovieDetails from './MovieDetails' 
+import React from 'react';
+import MovieDetails from './MovieDetails';
 
 const MovieDetailContainer = ({ selectedMovie, resetSelectedMovie }) => {
     
-    return (
-            <MovieDetails
-            selectedMovie={selectedMovie}
-            resetSelectedMovie={resetSelectedMovie}
-            />
-            )
-    
+  return (
+    <MovieDetails
+    selectedMovie={selectedMovie}
+    resetSelectedMovie={resetSelectedMovie}
+    />
+  );
 }
 
-export default MovieDetailContainer
+export default MovieDetailContainer;
