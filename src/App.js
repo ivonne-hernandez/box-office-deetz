@@ -34,7 +34,6 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        {!this.state.selectedMovie ? 
         <Routes>
           <Route path="/" element={
             <Home 
@@ -44,17 +43,16 @@ class App extends Component {
               setSelectedMovie={this.setSelectedMovie} 
               resetSelectedMovie={this.resetSelectedMovie} 
             />
-            }
+          }
+          />
+          <Route path="/:id" element={
+            <MovieDetailContainer
+              selectedMovie={this.state.selectedMovie}
+              resetSelectedMovie={this.resetSelectedMovie}
             />
-        </Routes> 
-        :
-        <MovieDetailContainer
-        selectedMovie={this.state.selectedMovie}
-        resetSelectedMovie={this.resetSelectedMovie}
-        />
-        }
-        
-        
+          }
+          />
+        </Routes>       
       </div>
     );
   }
