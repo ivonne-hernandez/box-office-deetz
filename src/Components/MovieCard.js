@@ -1,10 +1,8 @@
 import React from 'react';
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import '../styles/MovieCard.css'
 
-const MovieCard = ({ title, poster, backdrop, averageRating, releaseDate, overview, genres, budget, revenue, tagline, id, selectedMovie, setSelectedMovie, resetSelectedMovie }) => {
-
-  let navigate = useNavigate()
+const MovieCard = ({ title, poster, backdrop, averageRating, releaseDate, id, selectedMovie, setSelectedMovie, resetSelectedMovie }) => {
 
   const clickMovie = () => {
     setSelectedMovie(id);
