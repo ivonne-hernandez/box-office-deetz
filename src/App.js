@@ -12,7 +12,7 @@ class App extends Component {
     super();
     this.state = {
       movies: [],
-      selectedMovie: null,
+      selectedMovie: false,
       isModalOpen: false,
       isLoading: true
     }
@@ -35,21 +35,29 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <Routes>
-          <Route path="/" element={<Home movies={this.state.movies} selectedMovie={this.state.selectedMovie} isModalOpen={this.state.isModalOpen} isLoading={this.state.isLoading} setSelectedMovie={this.setSelectedMovie} toggleModal={this.toggleModal} />}/>
-          <Route path="/test" element=
-            {
-            <>
-            <ModalContainer isModalOpen={this.state.isModalOpen} selectedMovie={this.state.selectedMovie} toggleModal={this.toggleModal} /> 
-            <Home movies={this.state.movies} selectedMovie={this.state.selectedMovie} isModalOpen={this.state.isModalOpen} isLoading={this.state.isLoading} setSelectedMovie={this.setSelectedMovie} toggleModal={this.toggleModal}/>
-            </>
-            }/>
-        </Routes> 
+        {!this.state.selectedMovie ? <Home
+        movies={this.state.movies}
+        selectedMovie={this.state.selectedMovie}
+        isModalOpen={this.state.isModalOpen}
+        setSelectedMovie={this.setSelectedMovie}
+        toggleModal={this.toggleModal}
+  
+        /> 
+        :
+        <Modal />
+        }
+        
         
       </div>
     );
   }
 
 }
+
+// coming back to this when we return to implementing Router - valid Route path for homepage.
+// {/* <Routes>
+//  <Route path="/" element={<Home movies={this.state.movies} selectedMovie={this.state.selectedMovie} isModalOpen={this.state.isModalOpen} isLoading={this.state.isLoading} setSelectedMovie={this.setSelectedMovie} toggleModal={this.toggleModal} />}/>
+// </Routes>  */}
+
 
 export default App;
