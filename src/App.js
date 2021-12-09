@@ -13,7 +13,6 @@ class App extends Component {
     this.state = {
       movies: [],
       selectedMovie: false,
-      isModalOpen: false,
       isLoading: true
     }
   }
@@ -38,7 +37,6 @@ class App extends Component {
         {!this.state.selectedMovie ? <Home
         movies={this.state.movies}
         selectedMovie={this.state.selectedMovie}
-        isModalOpen={this.state.isModalOpen}
         setSelectedMovie={this.setSelectedMovie}
         toggleModal={this.toggleModal}
   
@@ -59,7 +57,7 @@ class App extends Component {
 
 // coming back to this when we return to implementing Router - valid Route path for homepage.
 // {/* <Routes>
-//  <Route path="/" element={<Home movies={this.state.movies} selectedMovie={this.state.selectedMovie} isModalOpen={this.state.isModalOpen} isLoading={this.state.isLoading} setSelectedMovie={this.setSelectedMovie} toggleModal={this.toggleModal} />}/>
+//  <Route path="/" element={<Home movies={this.state.movies} selectedMovie={this.state.selectedMovie} isLoading={this.state.isLoading} setSelectedMovie={this.setSelectedMovie} toggleModal={this.toggleModal} />}/>
 // </Routes>  */}
 
 

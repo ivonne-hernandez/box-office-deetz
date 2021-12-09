@@ -2,7 +2,7 @@ import React from 'react';
 import Header from './Header';
 import MoviesContainer from './MoviesContainer';
 
-const Home = ({ movies, selectedMovie, isModalOpen, isLoading, setSelectedMovie, toggleModal }) => {
+const Home = ({ movies, selectedMovie, isLoading, setSelectedMovie, toggleModal }) => {
   if (isLoading) {
     return (
       <div>Loading...</div>
@@ -12,7 +12,6 @@ const Home = ({ movies, selectedMovie, isModalOpen, isLoading, setSelectedMovie,
       <div>
         <MoviesContainer movies={movies}
           selectedMovie={selectedMovie}
-          isModalOpen={isModalOpen}
           setSelectedMovie={setSelectedMovie}
           toggleModal={toggleModal}
         />

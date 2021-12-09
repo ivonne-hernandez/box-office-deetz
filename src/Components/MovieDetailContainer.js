@@ -1,7 +1,7 @@
 import React from 'react'
 import MovieDetails from './MovieDetails' 
 
-const MovieDetailContainer = ({ isModalOpen, selectedMovie, toggleModal }) => {
+const MovieDetailContainer = ({ selectedMovie, toggleModal }) => {
     
     return (
             <MovieDetails
