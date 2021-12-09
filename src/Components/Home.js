@@ -1,8 +1,7 @@
 import React from 'react';
-import Header from './Header';
 import MoviesContainer from './MoviesContainer';
 
-const Home = ({ movies, selectedMovie, isLoading, setSelectedMovie, resetSelectedMovie }) => {
+const Home = ({ movies, isLoading, setSelectedMovie }) => {
   if (isLoading) {
     return (
       <div>Loading...</div>
@@ -10,10 +9,9 @@ const Home = ({ movies, selectedMovie, isLoading, setSelectedMovie, resetSelecte
   } else {
     return (
       <div>
-        <MoviesContainer movies={movies}
-          selectedMovie={selectedMovie}
+        <MoviesContainer 
+          movies={movies}
           setSelectedMovie={setSelectedMovie}
-          resetSelectedMovie={resetSelectedMovie}
         />
       </div>
     )
