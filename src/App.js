@@ -26,7 +26,7 @@ class App extends Component {
     this.setState({ selectedMovie: id });
   }
 
-  toggleModal = () => {
+  resetSelectedMovie = () => {
     this.setState({ selectedMovie: null });
   }
 
@@ -37,14 +37,15 @@ class App extends Component {
         {!this.state.selectedMovie ? <Home
         movies={this.state.movies}
         selectedMovie={this.state.selectedMovie}
+        isLoading={this.state.isLoading}
         setSelectedMovie={this.setSelectedMovie}
-        toggleModal={this.toggleModal}
+        resetSelectedMovie={this.resetSelectedMovie}
   
         /> 
         :
         <MovieDetailContainer
         selectedMovie={this.state.selectedMovie}
-        toggleModal={this.toggleModal}
+        resetSelectedMovie={this.resetSelectedMovie}
         />
         }
         
@@ -57,7 +58,7 @@ class App extends Component {
 
 // coming back to this when we return to implementing Router - valid Route path for homepage.
 // {/* <Routes>
-//  <Route path="/" element={<Home movies={this.state.movies} selectedMovie={this.state.selectedMovie} isLoading={this.state.isLoading} setSelectedMovie={this.setSelectedMovie} toggleModal={this.toggleModal} />}/>
+//  <Route path="/" element={<Home movies={this.state.movies} selectedMovie={this.state.selectedMovie} isLoading={this.state.isLoading} setSelectedMovie={this.setSelectedMovie} resetSelectedMovie={this.resetSelectedMovie} />}/>
 // </Routes>  */}
 
 

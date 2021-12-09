@@ -1,12 +1,12 @@
 import React from 'react'
 import MovieDetails from './MovieDetails' 
 
-const MovieDetailContainer = ({ selectedMovie, toggleModal }) => {
+const MovieDetailContainer = ({ selectedMovie, resetSelectedMovie }) => {
     
     return (
             <MovieDetails
             selectedMovie={selectedMovie}
-            toggleModal={toggleModal}
+            resetSelectedMovie={resetSelectedMovie}
             />
             )
     
