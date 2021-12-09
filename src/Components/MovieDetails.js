@@ -2,13 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import '../styles/Modal.css';
 import { fetchSingleMovie } from '../api-Calls';
+import { useParams } from 'react-router-dom';
 
-class Modal extends React.Component {
+class MovieDetails extends React.Component {
   constructor() {
     super();
     this.state = {
       movie: null,
-      isModalLoading: true,
+      isLoading: true,
     }
   }
 
@@ -16,13 +17,13 @@ componentDidMount = () => {
   fetchSingleMovie(this.props.selectedMovie)
     .then(data => this.setState({
       movie: data.movie,
-      isModalLoading: false
+      isLoading: false
     }))
 }
 
 
 render = () => {
-  if (this.state.movie && !this.state.isModalLoading) {
+  if (this.state.movie && !this.state.isLoading) {
     const myStyle = {
       backgroundImage: `url(${this.state.movie.backdrop_path})`
     }
@@ -44,7 +45,7 @@ render = () => {
               <p className="modal-p"><b>Budget:</b> {this.state.movie.budget}</p>
               <p className="modal-p"><b>Revenue:</b> {this.state.movie.revenue}</p>
               <p className="modal-p"><b>Tagline:</b> {this.state.movie.tagline}</p>
-              <button onClick={() => this.props.toggleModal(false)}>Close</button>
+              <button onClick={() => this.props.resetSelectedMovie()}>Close</button>
             </div>
           </article>
         </div>
@@ -57,4 +58,4 @@ render = () => {
 
 }
 
-export default Modal;
+export default MovieDetails;

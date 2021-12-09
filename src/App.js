@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
-import Header from './Components/Header';
-import MoviesContainer from './Components/MoviesContainer';
-import Modal from './Components/Modal';
+import MovieDetails from './Components/MovieDetails';
+import MovieDetailContainer from './Components/MovieDetailContainer';
 import { fetchAllMovies } from './api-Calls';
 import './App.css';
+import { Routes, Route } from 'react-router-dom';
+import Home from './Components/Home';
+import Header from './Components/Header';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       movies: [],
-      selectedMovie: null,
-      isModalOpen: false,
+      selectedMovie: false,
       isLoading: true
     }
   }
@@ -21,38 +22,47 @@ class App extends Component {
       .then(data => this.setState({ movies: data.movies, isLoading: false }))
   }
 
-
   setSelectedMovie = (id) => {
     this.setState({ selectedMovie: id });
   }
 
-  toggleModal = (bool) => {
-    this.setState({ isModalOpen: bool });
+  resetSelectedMovie = () => {
+    this.setState({ selectedMovie: null });
   }
 
   render = () => {
     return (
       <div className="App">
         <Header />
-        {this.state.isLoading && <div>Loading...</div>}
-        {!this.state.isLoading && 
-          <MoviesContainer movies={this.state.movies}
-            selectedMovie={this.state.selectedMovie}
-            isModalOpen={this.state.isModalOpen}
-            setSelectedMovie={this.setSelectedMovie}
-            toggleModal={this.toggleModal}
-          />}
-        {this.state.isModalOpen && this.state.selectedMovie ?
-          <Modal
-            selectedMovie={this.state.selectedMovie}
-            toggleModal={this.toggleModal}
-          />
-          : null
+        {!this.state.selectedMovie ? 
+        <Routes>
+          <Route path="/" element={
+            <Home 
+              movies={this.state.movies} 
+              selectedMovie={this.state.selectedMovie} 
+              isLoading={this.state.isLoading} 
+              setSelectedMovie={this.setSelectedMovie} 
+              resetSelectedMovie={this.resetSelectedMovie} 
+            />
+            }
+            />
+        </Routes> 
+        :
+        <MovieDetailContainer
+        selectedMovie={this.state.selectedMovie}
+        resetSelectedMovie={this.resetSelectedMovie}
+        />
         }
+        
+        
       </div>
     );
   }
 
 }
+
+// coming back to this when we return to implementing Router - valid Route path for homepage.
+
+
 
 export default App;
