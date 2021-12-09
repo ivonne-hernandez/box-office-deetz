@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import MovieDetails from './Components/MovieDetails';
-import MovieDetailContainer from './Components/MovieDetailContainer';
+import MovieDetailsContainer from './Components/MovieDetailsContainer';
 import { fetchAllMovies } from './api-Calls';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
@@ -46,7 +46,7 @@ class App extends Component {
           }
           />
           <Route path="/:id" element={
-            <MovieDetailContainer
+            <MovieDetailsContainer
               selectedMovie={this.state.selectedMovie}
               resetSelectedMovie={this.resetSelectedMovie}
             />

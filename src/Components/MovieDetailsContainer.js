@@ -3,7 +3,7 @@ import MovieDetails from './MovieDetails';
 import { useNavigate } from 'react-router';
 import { useParams } from 'react-router-dom';
 
-const MovieDetailContainer = ({ resetSelectedMovie }) => {
+const MovieDetailsContainer = ({ resetSelectedMovie }) => {
   let navigate = useNavigate();
   let { id } = useParams();
   
@@ -20,4 +20,4 @@ const MovieDetailContainer = ({ resetSelectedMovie }) => {
   );
 }
 
-export default MovieDetailContainer;
+export default MovieDetailsContainer;
