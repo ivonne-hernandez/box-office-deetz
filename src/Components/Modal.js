@@ -45,7 +45,7 @@ render = () => {
               <p className="modal-p"><b>Budget:</b> {this.state.movie.budget}</p>
               <p className="modal-p"><b>Revenue:</b> {this.state.movie.revenue}</p>
               <p className="modal-p"><b>Tagline:</b> {this.state.movie.tagline}</p>
-              <button onClick={() => this.props.toggleModal(false)}>Close</button>
+              <button onClick={() => this.props.toggleModal()}>Close</button>
             </div>
           </article>
         </div>
