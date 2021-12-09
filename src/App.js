@@ -27,8 +27,8 @@ class App extends Component {
     this.setState({ selectedMovie: id });
   }
 
-  toggleModal = (bool) => {
-    this.setState({ isModalOpen: bool });
+  toggleModal = () => {
+    this.setState({ selectedMovie: null });
   }
 
   render = () => {
@@ -44,7 +44,10 @@ class App extends Component {
   
         /> 
         :
-        <Modal />
+        <Modal
+        selectedMovie={this.state.selectedMovie}
+        toggleModal={this.toggleModal}
+        />
         }
         
         
