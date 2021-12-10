@@ -2,6 +2,8 @@ describe('Box Office Deetz Test', () => {
 
     beforeEach(() => {
         cy.visit('http://localhost:3000');
+        cy.intercept('GET', '/api/v2/movies', 
+        { fixture: 'allMovies.json' })
     });
 
     it('the header should contain the name of the application and the clapper logo image', () => {
