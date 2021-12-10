@@ -33,15 +33,15 @@ render = () => {
             <img src={this.state.movie.poster_path} alt={this.state.movie.title + ` poster`} className="modal-poster"/>
             <div className="modal-poster movie-content">
               <div className="modal-title">
-                <h3>{this.state.movie.title}</h3>
+                <h3 className="modal-movie-title" id="movie-title">{this.state.movie.title}</h3>
               </div>
-              <p className="modal-p"><b>Average Rating:</b> {this.state.movie.average_rating} / 10</p>
+              <p className="modal-p" id="average-rating"><b>Average Rating:</b> {this.state.movie.average_rating} / 10</p>
               <p className="modal-p"><b>Release Date:</b> {this.state.movie.release_date}</p>
-              <p className="modal-p"><b>Overview:</b> {this.state.movie.overview}</p>
-              <p className="modal-p"><b>Genres:</b> {this.state.movie.genres}</p>
-              <p className="modal-p"><b>Budget:</b> {this.state.movie.budget}</p>
-              <p className="modal-p"><b>Revenue:</b> {this.state.movie.revenue}</p>
-              <p className="modal-p"><b>Tagline:</b> {this.state.movie.tagline}</p>
+              <p className="modal-p" id="overview"><b>Overview:</b> {this.state.movie.overview}</p>
+              <p className="modal-p" id="genres"><b>Genres:</b> {this.state.movie.genres}</p>
+              <p className="modal-p" id="budget"><b>Budget:</b> {this.state.movie.budget}</p>
+              <p className="modal-p" id="revenue"><b>Revenue:</b> {this.state.movie.revenue}</p>
+              <p className="modal-p" id="tagline"><b>Tagline:</b> {this.state.movie.tagline}</p>
               <button className="movie-details-close-button" onClick={() => this.props.closeMovieDetails()}>Close</button>
             </div>
           </article>
