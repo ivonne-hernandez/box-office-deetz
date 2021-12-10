@@ -63,7 +63,16 @@ describe('Box Office Deetz Test', () => {
     // user flow:
     // we want to be able to test that if a user enters a particular movie
     // path/URL that they load onto the page correctly. 
+    it('Should be able to test that if a user enters a particular movie path via a URL, that it loads the correct movie details page', () => {
+      cy.visit('http://localhost:3000/337401')
+        .get('div[class="modal-backdrop-img"]')
+        .get('img[alt="Mulan poster"]')
+        .get('div[class="modal-title"]')
+        .get('p[id="average-rating"]')
+        // .get('h3[id="movie-title"]')
+        // .contains("Mulan")
 
+    })
 
     // user flow:
     // we want to be able to test that the user can REFRESH the page and 
