@@ -32,7 +32,6 @@ class App extends Component {
   render = () => {
     return (
       <div className="App">
-        <button onClick={() => this.testFunction()}>CLICK</button>
         <Header />
         <Routes>
           <Route path="/" element={
