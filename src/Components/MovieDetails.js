@@ -42,7 +42,7 @@ render = () => {
               <p className="modal-p"><b>Budget:</b> {this.state.movie.budget}</p>
               <p className="modal-p"><b>Revenue:</b> {this.state.movie.revenue}</p>
               <p className="modal-p"><b>Tagline:</b> {this.state.movie.tagline}</p>
-              <button onClick={() => this.props.closeMovieDetails()}>Close</button>
+              <button className="movie-details-close-button" onClick={() => this.props.closeMovieDetails()}>Close</button>
             </div>
           </article>
         </div>

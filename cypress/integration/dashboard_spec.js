@@ -39,6 +39,12 @@ describe('Box Office Deetz Test', () => {
     // user flow:
     // we want to be able to test that FROM a movie detail page, we can
     // click CLOSE and return to the main page. 
+    it('Should be able to click the close button in the Movie Details page and return to the Home page', () => {
+      cy.visit('http://localhost:3000/337401')
+        .get('button[class="movie-details-close-button"]')
+        .click()
+        .url('http://localhost:3000')
+    })
 
     // user flow: 
     // we want to test that a user can successfully use the back and forward
