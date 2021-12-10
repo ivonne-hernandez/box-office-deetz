@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 const MovieDetailsContainer = ({ resetSelectedMovie }) => {
   let navigate = useNavigate();
   let { id } = useParams();
+  console.log(`useParams:`, useParams())
   
   const closeMovieDetails = () => {
     resetSelectedMovie();

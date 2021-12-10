@@ -44,7 +44,6 @@ class App extends Component {
           />
           <Route path="/:id" element={
             <MovieDetailsContainer
-              selectedMovie={this.state.selectedMovie}
               resetSelectedMovie={this.resetSelectedMovie}
             />
           }
@@ -57,3 +56,9 @@ class App extends Component {
 }
 
 export default App;
+
+
+// where is our useParams being set?
+//I removed the selectedMovie={this.state.selectedMovie} as props from the MovieDetailsContainer
+//and it still works
+//on MovieDetailsContainer I'm assigning the selected
