@@ -22,13 +22,19 @@ describe('Box Office Deetz Test', () => {
         .siblings('p[class="movieCardReleaseDate"]')
     })
 
-
     // user flow we need to test:
     // test the ability to load a movie details page 
     // -- cy.intercept write mock response for sampleMovie - use sampleMovie fixture
     // then visit the URL for that particular sampleMovie
     // verify that the child elements loaded successfully with the
     // right values for that particular movie
+    it('Should be able to load a movieDetails page', () => {
+      cy.get('article[id=337401]')
+        .click()
+        .intercept('GET', '/api/v2/movies/337401', { fixture:'sampleMovie.json' })
+        .get('div[class="modal"]')
+        .contains("Mulan")
+    })
 
     // user flow:
     // we want to be able to test that FROM a movie detail page, we can
