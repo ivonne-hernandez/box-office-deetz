@@ -58,7 +58,11 @@ class App extends Component {
 export default App;
 
 
-// where is our useParams being set?
-//I removed the selectedMovie={this.state.selectedMovie} as props from the MovieDetailsContainer
-//and it still works
-//on MovieDetailsContainer I'm assigning the selected
+// <Link to={`/${id}`}> in MovieCard is what is setting our useParams which allows us to do grab and pass down the id to the MovieDetails in the MovieDetailsContainer
+
+
+//MovieCard ATM: it's having every single card be a link hence the styling weirdness
+//We may want to think about removing our <Link> in MovieCard and instead
+// import useNavigate and useParams 
+//in our onClick event handler we can have it 
+//navigate us to the id since we have access to it as props in this component
