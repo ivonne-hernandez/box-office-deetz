@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import MovieDetails from './Components/MovieDetails';
-import MovieDetailContainer from './Components/MovieDetailContainer';
-import { fetchAllMovies } from './api-Calls';
-import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Home from './Components/Home';
 import Header from './Components/Header';
+import MovieDetailsContainer from './Components/MovieDetailsContainer';
+import { fetchAllMovies } from './api-Calls';
+import './App.css';
 
 class App extends Component {
   constructor() {
@@ -34,35 +33,26 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        {!this.state.selectedMovie ? 
         <Routes>
           <Route path="/" element={
             <Home 
               movies={this.state.movies} 
-              selectedMovie={this.state.selectedMovie} 
               isLoading={this.state.isLoading} 
               setSelectedMovie={this.setSelectedMovie} 
-              resetSelectedMovie={this.resetSelectedMovie} 
             />
-            }
+          }
+          />
+          <Route path="/:id" element={
+            <MovieDetailsContainer
+              resetSelectedMovie={this.resetSelectedMovie}
             />
-        </Routes> 
-        :
-        <MovieDetailContainer
-        selectedMovie={this.state.selectedMovie}
-        resetSelectedMovie={this.resetSelectedMovie}
-        />
-        }
-        
-        
+          }
+          />
+        </Routes>       
       </div>
     );
   }
 
 }
-
-// coming back to this when we return to implementing Router - valid Route path for homepage.
-
-
 
 export default App;
