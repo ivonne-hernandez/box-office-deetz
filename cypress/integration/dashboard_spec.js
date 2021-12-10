@@ -49,6 +49,16 @@ describe('Box Office Deetz Test', () => {
     // user flow: 
     // we want to test that a user can successfully use the back and forward
     // buttons in their browser to navigate various paths
+    it('Should be able to click on the back and forward buttons in the browser to navigate to previously selected paths', () => {
+      cy.visit('http://localhost:3000/')
+      .get('article[id=337401]')
+      .click()
+      .url('http://localhost:3000/337401')
+      .go('back')
+      .url('http://localhost:3000')
+      .go('forward')
+      .url('http://localhost:3000/337401')
+    })
 
     // user flow:
     // we want to be able to test that if a user enters a particular movie
