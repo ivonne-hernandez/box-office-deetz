@@ -1,9 +1,9 @@
 describe('Box Office Deetz Test', () => {
 
     beforeEach(() => {
-        cy.visit('http://localhost:3000');
         cy.intercept('GET', '/api/v2/movies', 
         { fixture: 'allMovies.json' })
+        cy.visit('http://localhost:3000');
     });
 
     it('the header should contain the name of the application and the clapper logo image', () => {
@@ -23,20 +23,30 @@ describe('Box Office Deetz Test', () => {
     })
 
 
-    // it('should be able to fill the movie card container based on a successful network request', () => {
-    //     cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
-    //         statusCode: 200,
-    //         body: {
-    //             movies: 
-    //         }
-    //     })
-    // })
+    // user flow we need to test:
+    // test the ability to load a movie details page 
+    // -- cy.intercept write mock response for sampleMovie - use sampleMovie fixture
+    // then visit the URL for that particular sampleMovie
+    // verify that the child elements loaded successfully with the
+    // right values for that particular movie
 
-    // it('should be able to click on a given card and view its details', () => {
-    //     cy.get('article[key="337401"]')
-    // })
+    // user flow:
+    // we want to be able to test that FROM a movie detail page, we can
+    // click CLOSE and return to the main page. 
 
-    //
+    // user flow: 
+    // we want to test that a user can successfully use the back and forward
+    // buttons in their browser to navigate various paths
 
+    // user flow:
+    // we want to be able to test that if a user enters a particular movie
+    // path/URL that they load onto the page correctly. 
+
+
+    // user flow:
+    // we want to be able to test that the user can REFRESH the page and 
+    // still see the same content on both the Home path and the details paths
+
+    // 
 
 });
