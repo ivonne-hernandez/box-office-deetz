@@ -8,7 +8,6 @@ function Header() {
       <h1>Box Office Deetz
         <img src={clapper} className="clapper"  alt="clapper"/>
       </h1>
-      <input type="text" placeholder="Ready, set, search"></input>
     </div>
   )
 }

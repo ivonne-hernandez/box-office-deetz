@@ -11,7 +11,6 @@ class App extends Component {
     super();
     this.state = {
       movies: [],
-      selectedMovie: false,
       isLoading: true
     }
   }
@@ -19,14 +18,6 @@ class App extends Component {
   componentDidMount = () => {
     fetchAllMovies()
       .then(data => this.setState({ movies: data.movies, isLoading: false }))
-  }
-
-  setSelectedMovie = (id) => {
-    this.setState({ selectedMovie: id });
-  }
-
-  resetSelectedMovie = () => {
-    this.setState({ selectedMovie: null });
   }
 
   render = () => {
@@ -38,16 +29,10 @@ class App extends Component {
             <Home 
               movies={this.state.movies} 
               isLoading={this.state.isLoading} 
-              setSelectedMovie={this.setSelectedMovie} 
             />
           }
           />
-          <Route path="/:id" element={
-            <MovieDetailsContainer
-              resetSelectedMovie={this.resetSelectedMovie}
-            />
-          }
-          />
+          <Route path="/:id" element={<MovieDetailsContainer/>}/>
         </Routes>       
       </div>
     );
