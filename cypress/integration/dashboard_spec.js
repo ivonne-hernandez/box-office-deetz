@@ -63,7 +63,7 @@ describe('Box Office Deetz Test', () => {
     // user flow:
     // we want to be able to test that if a user enters a particular movie
     // path/URL that they load onto the page correctly. 
-    it('Should be able to test that if a user enters a particular movie path via a URL, that it loads the correct movie details page', () => {
+    it('Should be able to load the correct movie details page given a specific URL', () => {
       cy.visit('http://localhost:3000/337401')
         .get('div[class="modal-backdrop-img"]')
         .get('img[alt="Mulan poster"]')
@@ -76,8 +76,21 @@ describe('Box Office Deetz Test', () => {
 
     // user flow:
     // we want to be able to test that the user can REFRESH the page and 
-    // still see the same content on both the Home path and the details paths
-
+    // still see the same content on both the Home path 
+    //and the details paths
+    it('Should be able to load the home page when the user hits refresh', () => {
+      cy.reload()
+        .get('div[class="header"]')
+        .get('img')
+        .get('h1[class="headerTitle"]')
+        .contains('Box Office Deetz')
+        .get('main[class="movieContainer"]')
+        .children('article[class="movieCard"]')
+        .children('img')
+        .siblings('h2')
+        .siblings('p[class="movieCardRating"]')
+        .siblings('p[class="movieCardReleaseDate"]')
+    })
     // 
 
 });
