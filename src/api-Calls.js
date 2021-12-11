@@ -10,7 +10,26 @@ const fetchSingleMovie = (id) => {
     .catch((err) => console.log(err))
 }
 
+const fetchFavoriteMovies = () => {
+  return fetch(`http://localhost:3001/api/v1/favorite-movies`)
+  .then((response) => response.json())
+  .then((data) => console.log(data))
+}
+
+const postFavoriteMovie = (data) => {
+   fetch('http://localhost/3001/favorite-movies', {
+    method: 'POST',
+    body: JSON.stringify(data),
+    headers: {
+      'Content-Type': 'application/json',
+    }
+   }).then(response => response.json());
+}
+
+
 module.exports = {
   fetchAllMovies,
-  fetchSingleMovie
+  fetchSingleMovie,
+  fetchFavoriteMovies,
+  postFavoriteMovie,
 }

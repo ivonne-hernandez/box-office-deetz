@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './Components/Home';
 import Header from './Components/Header';
 import MovieDetailsContainer from './Components/MovieDetailsContainer';
-import { fetchAllMovies } from './api-Calls';
+import { fetchAllMovies, fetchFavoriteMovies } from './api-Calls';
 import './App.css';
 
 class App extends Component {
@@ -33,6 +33,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
+        <button onClick={() => fetchFavoriteMovies()}>Click to test favorite fetch</button>
         <Routes>
           <Route path="/" element={
             <Home 
