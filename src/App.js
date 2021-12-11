@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './Components/Home';
 import Header from './Components/Header';
 import MovieDetailsContainer from './Components/MovieDetailsContainer';
-import { fetchAllMovies, fetchFavoriteMovies } from './api-Calls';
+import { fetchAllMovies, fetchFavoriteMovies, postFavoriteMovie } from './api-Calls';
 import './App.css';
 
 class App extends Component {
@@ -11,6 +11,7 @@ class App extends Component {
     super();
     this.state = {
       movies: [],
+      favoriteMovies: [],
       selectedMovie: false,
       isLoading: true
     }
@@ -29,6 +30,13 @@ class App extends Component {
     this.setState({ selectedMovie: null });
   }
 
+  addFavorite = (data) => {
+    this.setState(prevState => ({
+      favoriteMovies: [...prevState.favoriteMovies, data]
+    }))
+    postFavoriteMovie(data)
+  }
+
   render = () => {
     return (
       <div className="App">
@@ -39,7 +47,8 @@ class App extends Component {
             <Home 
               movies={this.state.movies} 
               isLoading={this.state.isLoading} 
-              setSelectedMovie={this.setSelectedMovie} 
+              setSelectedMovie={this.setSelectedMovie}
+              addFavorite={this.addFavorite} 
             />
           }
           />
