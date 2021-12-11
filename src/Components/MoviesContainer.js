@@ -2,7 +2,7 @@ import React from 'react'
 import MovieCard from './MovieCard'
 import '../styles/MoviesContainer.css'
 
-const MoviesContainer = ({ movies, setSelectedMovie }) => {
+const MoviesContainer = ({ movies, setSelectedMovie, addFavorite }) => {
   const movieCards = movies.map(movie => {
     return (
       <MovieCard
@@ -13,6 +13,7 @@ const MoviesContainer = ({ movies, setSelectedMovie }) => {
         id={movie.id}
         key={movie.id}
         setSelectedMovie={setSelectedMovie}
+        addFavorite={addFavorite}
       />
     )
   });

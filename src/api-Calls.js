@@ -17,7 +17,7 @@ const fetchFavoriteMovies = () => {
 }
 
 const postFavoriteMovie = (data) => {
-   fetch('http://localhost/3001/favorite-movies', {
+   fetch('http://localhost:3001/api/v1/favorite-movies', {
     method: 'POST',
     body: JSON.stringify(data),
     headers: {
