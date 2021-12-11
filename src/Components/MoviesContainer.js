@@ -1,6 +1,5 @@
 import React from 'react'
 import MovieCard from './MovieCard'
-
 import '../styles/MoviesContainer.css'
 
 const MoviesContainer = ({ movies, selectedMovie, setSelectedMovie, isModalOpen, toggleModal }) => {

@@ -1,7 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import '../styles/Modal.css';
 import { fetchSingleMovie } from '../api-Calls';
+import Error from './Error';
 
 class Modal extends React.Component {
   constructor() {
@@ -9,6 +9,7 @@ class Modal extends React.Component {
     this.state = {
       movie: null,
       isModalLoading: true,
+      error: null
     }
   }
 
@@ -18,10 +19,20 @@ componentDidMount = () => {
       movie: data.movie,
       isModalLoading: false
     }))
+    .catch(error => {
+      this.setState({error: error.message})
+    })
 }
 
 
 render = () => {
+  if (this.state.error) {
+    console.log(`here`, this.state.error)
+    return (
+      <Error error={this.state.error}/>
+    )
+  } 
+  
   if (this.state.movie && !this.state.isModalLoading) {
     const myStyle = {
       backgroundImage: `url(${this.state.movie.backdrop_path})`
