@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import Header from './Components/Header';
 import MoviesContainer from './Components/MoviesContainer';
 import Modal from './Components/Modal';
+import Error from './Components/Error';
 import { fetchAllMovies } from './api-Calls';
 import './App.css';
-import thisIsFire from './styles/thisIsFire.gif';
+
 
 class App extends Component {
   constructor() {
@@ -28,7 +29,6 @@ class App extends Component {
       });
   }
 
-
   setSelectedMovie = (id) => {
     this.setState({ selectedMovie: id });
   }
@@ -40,11 +40,7 @@ class App extends Component {
   render = () => {
     return (
       this.state.error !== null ?
-        <div className="error-display">
-          <img src={thisIsFire} alt="this is fine gif" className="dog-gif"/>
-          <p><b>Error:</b> {this.state.error}</p>
-          <p>Please refresh your browser.</p>
-        </div>
+        <Error error={this.state.error}/>
       :
         <div className="App">
           <Header />
