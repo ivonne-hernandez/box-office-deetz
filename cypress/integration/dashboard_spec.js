@@ -93,4 +93,13 @@ describe('Box Office Deetz Test', () => {
     })
     // 
 
+    it('Should be able to load the movie details page when the user hits refresh', () => {
+      cy.visit('http://localhost:3000/337401')
+        .reload()
+        .get('div[class="modal-backdrop-img"]')
+        .get('img[alt="Mulan poster"]')
+        .get('div[class="modal-title"]')
+        .get('p[id="average-rating"]')
+    })
+
 });
