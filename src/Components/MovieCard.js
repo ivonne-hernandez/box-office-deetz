@@ -1,20 +1,17 @@
 import React from 'react';
+import { useNavigate } from 'react-router';
 import '../styles/MovieCard.css'
 
-const MovieCard = ({ title, poster, backdrop, averageRating, releaseDate, overview, genres, budget, revenue, tagline, id, selectedMovie, setSelectedMovie, isModalOpen, toggleModal }) => {
-
-  const clickMovie = () => {
-    setSelectedMovie(id)
-    toggleModal(true)
-  }
+const MovieCard = ({ title, poster, averageRating, releaseDate, id }) => {
+  let navigate = useNavigate();
 
   return (
-      <article className="movieCard" onClick={() => clickMovie()}>
-        {<img src={poster} alt={ title + ` poster`} className='movieCardPoster'/>}
-        <h2>{title}</h2>
-        <p>Average Rating: {Number(averageRating.toFixed(2))} / 10</p>
-        <p>Release Date: {releaseDate}</p>
-      </article>
+    <article className="movieCard" onClick={() => navigate(`/${id}`)}>
+      {<img src={poster} alt={ title + ` poster`} className='movieCardPoster'/>}
+      <h2>{title}</h2>
+      <p>Average Rating: {Number(averageRating.toFixed(2))} / 10</p>
+      <p>Release Date: {releaseDate}</p>
+    </article>
   )
 }
 

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Home from './Components/Home';
 import Header from './Components/Header';
-import MoviesContainer from './Components/MoviesContainer';
-import Modal from './Components/Modal';
 import Error from './Components/Error';
+import MovieDetailsContainer from './Components/MovieDetailsContainer';
 import { fetchAllMovies } from './api-Calls';
 import './App.css';
 
@@ -12,10 +13,9 @@ class App extends Component {
     super();
     this.state = {
       movies: [],
-      selectedMovie: null,
-      isModalOpen: false,
-      isLoading: true,
-      error: null
+      error: null,
+      selectedMovie: false,
+      isLoading: true
     }
   }
 
@@ -33,8 +33,8 @@ class App extends Component {
     this.setState({ selectedMovie: id });
   }
 
-  toggleModal = (bool) => {
-    this.setState({ isModalOpen: bool });
+  resetSelectedMovie = () => {
+    this.setState({ selectedMovie: null });
   }
 
   render = () => {
@@ -42,25 +42,28 @@ class App extends Component {
       this.state.error !== null ?
         <Error error={this.state.error}/>
       :
-        <div className="App">
-          <Header />
-          {this.state.isLoading && <div>Loading...</div>}
-          {!this.state.isLoading && 
-            <MoviesContainer movies={this.state.movies}
-              selectedMovie={this.state.selectedMovie}
-              isModalOpen={this.state.isModalOpen}
-              setSelectedMovie={this.setSelectedMovie}
-              toggleModal={this.toggleModal}
-            />}
-          {this.state.isModalOpen && this.state.selectedMovie ?
-            <Modal
-              selectedMovie={this.state.selectedMovie}
-              toggleModal={this.toggleModal}
-            />
-            : null
+      <div className="App">
+        <Routes>
+          <Route path="/" element={
+            <>
+              <Header />
+              <Home 
+                movies={this.state.movies} 
+                isLoading={this.state.isLoading} 
+                setSelectedMovie={this.setSelectedMovie} 
+              />
+            </>
           }
-        </div>
-    )
+          />
+          <Route path="/:id" element={
+            <MovieDetailsContainer
+              resetSelectedMovie={this.resetSelectedMovie}
+            />
+          }
+          />
+        </Routes>       
+      </div>
+    );
   }
 
 }
