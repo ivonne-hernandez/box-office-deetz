@@ -1,0 +1,14 @@
+* {
+  background-color: black;
+  color: white;
+}
+
+.error-display {
+  font-size: 32px;
+  text-align: center;
+}
+
+.dog-gif {
+  padding-top: 50px;
+}
+
