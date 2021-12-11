@@ -86,7 +86,7 @@ describe('Box Office Deetz Test', () => {
         .contains('Box Office Deetz')
         .get('main[class="movieContainer"]')
         .children('article[class="movieCard"]')
-        .children('img')
+        .children('img[alt="Mulan poster"]')
         .siblings('h2')
         .siblings('p[class="movieCardRating"]')
         .siblings('p[class="movieCardReleaseDate"]')
@@ -96,9 +96,10 @@ describe('Box Office Deetz Test', () => {
     it('Should be able to load the movie details page when the user hits refresh', () => {
       cy.visit('http://localhost:3000/337401')
         .reload()
-        .get('div[class="modal-backdrop-img"]')
+        .get('div[alt="Mulan backdrop img"]')
         .get('img[alt="Mulan poster"]')
         .get('div[class="modal-title"]')
+        .contains('Mulan')
         .get('p[id="average-rating"]')
     })
 

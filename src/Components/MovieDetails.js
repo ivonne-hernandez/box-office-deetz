@@ -28,12 +28,12 @@ render = () => {
       <div className="modal-container">
         <div className="modal">
           <article className="modal-window">
-            <div className="modal-backdrop-img" style={myStyle}>
+            <div className="modal-backdrop-img" alt={this.state.movie.title + ` backdrop img`} style={myStyle}>
             </div>
             <img src={this.state.movie.poster_path} alt={this.state.movie.title + ` poster`} className="modal-poster"/>
             <div className="modal-poster movie-content">
               <div className="modal-title">
-                <h3 className="modal-movie-title" id="movie-title">{this.state.movie.title}</h3>
+                <h3 className="modal-movie-title"  id="movie-title">{this.state.movie.title}</h3>
               </div>
               <p className="modal-p" id="average-rating"><b>Average Rating:</b> {this.state.movie.average_rating} / 10</p>
               <p className="modal-p"><b>Release Date:</b> {this.state.movie.release_date}</p>
