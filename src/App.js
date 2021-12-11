@@ -14,7 +14,6 @@ class App extends Component {
     this.state = {
       movies: [],
       error: null,
-      selectedMovie: false,
       isLoading: true
     }
   }
@@ -29,14 +28,6 @@ class App extends Component {
       });
   }
 
-  setSelectedMovie = (id) => {
-    this.setState({ selectedMovie: id });
-  }
-
-  resetSelectedMovie = () => {
-    this.setState({ selectedMovie: null });
-  }
-
   render = () => {
     return (
       this.state.error !== null ?
@@ -49,16 +40,10 @@ class App extends Component {
             <Home 
               movies={this.state.movies} 
               isLoading={this.state.isLoading} 
-              setSelectedMovie={this.setSelectedMovie} 
             />
           }
           />
-          <Route path="/:id" element={
-            <MovieDetailsContainer
-              resetSelectedMovie={this.resetSelectedMovie}
-            />
-          }
-          />
+          <Route path="/:id" element={<MovieDetailsContainer/>}/>
         </Routes>       
       </div>
     );

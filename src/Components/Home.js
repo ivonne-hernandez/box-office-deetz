@@ -1,7 +1,7 @@
 import React from 'react';
 import MoviesContainer from './MoviesContainer';
 
-const Home = ({ movies, isLoading, setSelectedMovie }) => {
+const Home = ({ movies, isLoading }) => {
   if (isLoading) {
     return (
       <div>Loading...</div>
@@ -11,7 +11,6 @@ const Home = ({ movies, isLoading, setSelectedMovie }) => {
       <div>
         <MoviesContainer 
           movies={movies}
-          setSelectedMovie={setSelectedMovie}
         />
       </div>
     )
