@@ -1,8 +1,8 @@
-import React from 'react'
-import MovieCard from './MovieCard'
-import '../styles/MoviesContainer.css'
+import React from 'react';
+import MovieCard from './MovieCard';
+import '../styles/MoviesContainer.css';
 
-const MoviesContainer = ({ movies, setSelectedMovie, addFavorite }) => {
+const MoviesContainer = ({ movies }) => {
   const movieCards = movies.map(movie => {
     return (
       <MovieCard
@@ -12,7 +12,6 @@ const MoviesContainer = ({ movies, setSelectedMovie, addFavorite }) => {
         releaseDate={movie.release_date}
         id={movie.id}
         key={movie.id}
-        setSelectedMovie={setSelectedMovie}
         addFavorite={addFavorite}
       />
     )
