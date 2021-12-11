@@ -43,16 +43,14 @@ class App extends Component {
         <Error error={this.state.error}/>
       :
       <div className="App">
+        <Header />
         <Routes>
           <Route path="/" element={
-            <>
-              <Header />
-              <Home 
-                movies={this.state.movies} 
-                isLoading={this.state.isLoading} 
-                setSelectedMovie={this.setSelectedMovie} 
-              />
-            </>
+            <Home 
+              movies={this.state.movies} 
+              isLoading={this.state.isLoading} 
+              setSelectedMovie={this.setSelectedMovie} 
+            />
           }
           />
           <Route path="/:id" element={
