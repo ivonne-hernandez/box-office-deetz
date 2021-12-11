@@ -2,35 +2,37 @@ import React, { Component } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Home from './Components/Home';
 import Header from './Components/Header';
+import Error from './Components/Error';
 import MovieDetailsContainer from './Components/MovieDetailsContainer';
 import { fetchAllMovies } from './api-Calls';
 import './App.css';
+
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       movies: [],
-      selectedMovie: false,
+      error: null,
       isLoading: true
     }
   }
 
   componentDidMount = () => {
     fetchAllMovies()
-      .then(data => this.setState({ movies: data.movies, isLoading: false }))
-  }
-
-  setSelectedMovie = (id) => {
-    this.setState({ selectedMovie: id });
-  }
-
-  resetSelectedMovie = () => {
-    this.setState({ selectedMovie: null });
+      .then(data => {
+        this.setState({ movies: data.movies, isLoading: false })
+      })
+      .catch(error => {
+        this.setState({error: error.message})
+      });
   }
 
   render = () => {
     return (
+      this.state.error !== null ?
+        <Error error={this.state.error}/>
+      :
       <div className="App">
         <Header />
         <Routes>
@@ -38,16 +40,10 @@ class App extends Component {
             <Home 
               movies={this.state.movies} 
               isLoading={this.state.isLoading} 
-              setSelectedMovie={this.setSelectedMovie} 
             />
           }
           />
-          <Route path="/:id" element={
-            <MovieDetailsContainer
-              resetSelectedMovie={this.resetSelectedMovie}
-            />
-          }
-          />
+          <Route path="/:id" element={<MovieDetailsContainer/>}/>
         </Routes>       
       </div>
     );
