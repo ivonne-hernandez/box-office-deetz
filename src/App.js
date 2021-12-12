@@ -31,7 +31,7 @@ class App extends Component {
           this.setState({ movies: moviesWithFaves, isLoading: false})
         })
         .catch(error => {
-          this.setState({error: error.message})
+          this.setState({error: error.message});
         });
   }
 
@@ -47,7 +47,7 @@ class App extends Component {
         this.setState({ movies: updatedMovies });
       })
       .catch(error => {
-        this.setState({error: error.message})
+        this.setState({error: error.message});
       });
   }
 
@@ -64,7 +64,7 @@ class App extends Component {
         this.setState({ movies: updatedMovies });
       })
       .catch(error => {
-        this.setState({error: error.message})
+        this.setState({error: error.message});
       });
   }
 

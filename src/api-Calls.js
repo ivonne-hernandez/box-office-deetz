@@ -41,7 +41,7 @@ const postFavoriteMovie = (newMovie) => {
         throw new Error(`${response.status} ${response.statusText}`);
       }
       return response.json();
-    })
+    });
 }
 
 const deleteFavoriteMovie = (id) => {
@@ -52,7 +52,7 @@ const deleteFavoriteMovie = (id) => {
         throw new Error(`${response.status} ${response.statusText}`);
       }
       return response.json();
-    })
+    });
 }
 
 module.exports = {
