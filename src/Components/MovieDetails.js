@@ -33,13 +33,14 @@ render = () => {
             <div className="movie-details-poster movie-content">
               <div className="movie-details-title">
                 <h3>{this.state.movie.title}</h3>
+                <p className='movie-details-p'><b>Genres:</b>{this.state.movie.genres.join(', ')} </p>
               </div>
               <p className="movie-details-p"><b>Average Rating:</b> {Number(this.state.movie.average_rating.toFixed(2))} / 10</p>
               <p className="movie-details-p"><b>Release Date:</b> {this.state.movie.release_date}</p>
               <p className="movie-details-p"><b>Overview:</b> {this.state.movie.overview}</p>
-              <p className="movie-details-p"><b>Genres:</b> {this.state.movie.genres}</p>
-              <p className="movie-details-p"><b>Budget:</b> {this.state.movie.budget}</p>
-              <p className="movie-details-p"><b>Revenue:</b> {this.state.movie.revenue}</p>
+              {/* <p className="movie-details-p"><b>Genres:</b> {this.state.movie.genres}</p> */}
+              {this.state.movie.budget ? <p className="movie-details-p"><b>Budget:</b> ${this.state.movie.budget}</p> : null}
+              {this.state.movie.revenue ? <p className="movie-details-p"><b>Revenue:</b> ${this.state.movie.revenue}</p> : null}
               <p className="movie-details-p"><b>Tagline:</b> {this.state.movie.tagline}</p>
               <button onClick={() => this.props.closeMovieDetails()}>Close</button>
             </div>
