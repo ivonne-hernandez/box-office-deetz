@@ -24,14 +24,20 @@ const fetchFavoriteMovies = () => {
   .then((data) => console.log(data))
 }
 
-const postFavoriteMovie = (data) => {
-   fetch('http://localhost:3001/api/v1/favorite-movies', {
+const postFavoriteMovie = (newMovie) => {
+  fetch('http://localhost:3001/api/v1/favorite-movies', {
     method: 'POST',
-    body: JSON.stringify(data),
+    body: JSON.stringify(newMovie),
     headers: {
       'Content-Type': 'application/json',
     }
-   }).then(response => response.json());
+  })
+    .then(response => {
+      if(!response.ok) {
+        throw new Error(`${response.status} ${response.statusText}`);
+      }
+      return response.json();
+    });
 }
 
 
