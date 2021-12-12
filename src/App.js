@@ -56,9 +56,9 @@ class App extends Component {
   deleteFavorite = (id) => {
     deleteFavoriteMovie(id)
       .then(data => {
-        console.log(`deleteFave state.movies:`, this.state.movies)
+        const matchingId = Number(data.id);
         const updatedMovies = this.state.movies.map(movie => {
-          if (movie.id === data.id) {
+          if (movie.id === matchingId) {
             movie.favorite = false;
           }
           return movie;
