@@ -29,7 +29,6 @@ class App extends Component {
           return movie;
         })
           this.setState({ movies: moviesWithFaves, isLoading: false})
-          console.log(`compDidMount state.movies:`, this.state.movies)
         })
         .catch(error => {
           this.setState({error: error.message})
@@ -39,7 +38,6 @@ class App extends Component {
   addFavorite = (newMovie) => {
     postFavoriteMovie(newMovie)
       .then(data => {
-        console.log(`addFave state.movies:`, this.state.movies)
         const updatedMovies = this.state.movies.map(movie => {
           if (movie.id === data.id) {
             movie.favorite = true;
