@@ -26,14 +26,26 @@ class App extends Component {
       .catch(error => {
         this.setState({error: error.message})
       });
+    
+    fetchFavoriteMovies()
+      .then(data => {
+        this.setState({ favoriteMovies: data.faves})
+      })
+      .catch(error => {
+        this.setState({error: error.message})
+      });
   }
 
-  addFavorite = (data) => {
-    this.setState(prevState => ({
-      favoriteMovies: [...prevState.favoriteMovies, data]
-    }));
-    
-    postFavoriteMovie(data);
+  addFavorite = (newMovie) => {
+    postFavoriteMovie(newMovie)
+      .then(data => {
+        this.setState({
+          favoriteMovies: [...this.state.favoriteMovies, data.id]
+        });
+      })
+      .catch(error => {
+        this.setState({error: error.message})
+      });
   }
 
   render = () => {
@@ -43,7 +55,6 @@ class App extends Component {
       :
       <div className="App">
         <Header />
-        <button onClick={() => fetchFavoriteMovies()}>Click to test favorite fetch</button>
         <Routes>
           <Route path="/" element={
             <Home 
