@@ -35,7 +35,8 @@
 }
 
 .movie-details-poster {
-  width: 20vh;
+  width: 25vh;
+  height: auto;
   align-self: center;
   justify-self: center;
 }
