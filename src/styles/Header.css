@@ -14,11 +14,11 @@ h1 {
 }
 
 .clapper {
-  grid-column-start: 3;
+  grid-column-start: 4;
   grid-column-end: 4;
   height: 100px;
   width: 100px;
-  justify-self: start;
+  justify-self: center;
 }
 
 input {
