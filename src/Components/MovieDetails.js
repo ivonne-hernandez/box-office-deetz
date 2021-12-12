@@ -45,7 +45,7 @@ render = () => {
               <p className="movie-details-p"><b>Overview:</b> {this.state.movie.overview}</p>
               {this.state.movie.budget ? <p className="movie-details-p"><b>Budget:</b> ${this.state.movie.budget}</p> : null}
               {this.state.movie.revenue ? <p className="movie-details-p"><b>Revenue:</b> ${this.state.movie.revenue}</p> : null}
-              <p className="movie-details-p"><b>Tagline:</b> {this.state.movie.tagline}</p>
+              {this.state.movie.tagline ? <p className="movie-details-p"><b>Tagline:</b> {this.state.movie.tagline}</p> : null}
               <button onClick={() => this.props.closeMovieDetails()}>Close</button>
             </div>
           </article>
