@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/MovieDetails.css';
-import { fetchSingleMovie } from '../api-Calls';
+import { fetchFavoriteMovies, fetchSingleMovie } from '../api-Calls';
 import Error from './Error';
 
 class MovieDetails extends React.Component {
@@ -14,15 +14,22 @@ class MovieDetails extends React.Component {
   }
 
   componentDidMount = () => {
-    fetchSingleMovie(this.props.selectedMovie)
-      .then(data => this.setState({
-        movie: data.movie,
-        isLoading: false
-      }))
+    const singleMovie = fetchSingleMovie(this.props.selectedMovie)
+    const faveMovies = fetchFavoriteMovies();
+
+    Promise.all([singleMovie, faveMovies])
+      .then(data => {
+        const favoritedMovies = data[1].faves;
+        const singleMovie = data[0].movie;
+        singleMovie.favorite = favoritedMovies.includes(singleMovie.id);
+
+        this.setState({ movie: singleMovie, isLoading: false});
+      })
       .catch(error => {
         this.setState({error: error.message})
       })
   }
+
 
 render = () => {
   if (this.state.movie && !this.state.isLoading) {
