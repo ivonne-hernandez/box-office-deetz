@@ -32,6 +32,8 @@
   background-size: cover;
   background-position: center;
   box-shadow: inset 0px 0px 20px 2px #716e6e;
+  border: solid rgb(36, 36, 36);
+  border-radius: 2%;
 }
 
 .movie-details-poster {

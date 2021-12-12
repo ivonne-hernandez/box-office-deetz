@@ -34,12 +34,13 @@ render = () => {
           <article className="movie-details-window">
             <div className="movie-details-backdrop-img" style={myStyle}>
             </div>
+            
             <img src={this.state.movie.poster_path} alt={this.state.movie.title + ` poster`} className="movie-details-poster"/>
             <div className="movie-content">
               <div className="movie-details-title">
                 <h3>{this.state.movie.title}</h3>
               </div>
-              <p className='movie-details-p'><b>Genres:</b>{this.state.movie.genres.join(', ')} </p>
+              <p className='movie-details-p'><b>Genres:</b> {this.state.movie.genres.join(', ')} </p>
               <p className="movie-details-p"><b>Average Rating:</b> {Number(this.state.movie.average_rating.toFixed(2))} / 10</p>
               <p className="movie-details-p"><b>Release Date:</b> {this.state.movie.release_date}</p>
               <p className="movie-details-p"><b>Overview:</b> {this.state.movie.overview}</p>
