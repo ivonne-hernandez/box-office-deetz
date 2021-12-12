@@ -1,6 +1,7 @@
 import React from 'react';
 import '../styles/MovieDetails.css';
 import { fetchSingleMovie } from '../api-Calls';
+import Error from './Error';
 
 class MovieDetails extends React.Component {
   constructor() {
@@ -8,16 +9,20 @@ class MovieDetails extends React.Component {
     this.state = {
       movie: null,
       isLoading: true,
+      error: null
     }
   }
 
-componentDidMount = () => {
-  fetchSingleMovie(this.props.selectedMovie)
-    .then(data => this.setState({
-      movie: data.movie,
-      isLoading: false
-    }))
-}
+  componentDidMount = () => {
+    fetchSingleMovie(this.props.selectedMovie)
+      .then(data => this.setState({
+        movie: data.movie,
+        isLoading: false
+      }))
+      .catch(error => {
+        this.setState({error: error.message})
+      })
+  }
 
 render = () => {
   if (this.state.movie && !this.state.isLoading) {
@@ -49,8 +54,8 @@ render = () => {
   } else {
     return null;
   }
-}
 
+}
 }
 
 export default MovieDetails;

@@ -3,12 +3,11 @@ import MovieDetails from './MovieDetails';
 import { useNavigate } from 'react-router';
 import { useParams } from 'react-router-dom';
 
-const MovieDetailsContainer = ({ resetSelectedMovie }) => {
+const MovieDetailsContainer = () => {
   let navigate = useNavigate();
   let { id } = useParams();
   
   const closeMovieDetails = () => {
-    resetSelectedMovie();
     navigate("/");
   }
   
