@@ -19,17 +19,16 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    fetchAllMovies()
-      .then(data => {
-        this.setState({ movies: data.movies, isLoading: false })
+    const allMovies = fetchAllMovies();
+    const faveMovies = fetchFavoriteMovies();
+
+    Promise.all([allMovies, faveMovies]).then(data => {
+      const favoritedMovies = data[1].faves;
+      const moviesWithFaves = data[0].movies.map(movie => {
+        movie.favorite = favoritedMovies.includes(movie.id);
+        return movie;
       })
-      .catch(error => {
-        this.setState({error: error.message})
-      });
-    
-    fetchFavoriteMovies()
-      .then(data => {
-        this.setState({ favoriteMovies: data.faves})
+        this.setState({ movies: moviesWithFaves, isLoading: false})
       })
       .catch(error => {
         this.setState({error: error.message})
