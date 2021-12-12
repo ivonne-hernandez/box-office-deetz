@@ -25,7 +25,6 @@ render = () => {
       backgroundImage: `url(${this.state.movie.backdrop_path})`
     }
     return (
-      <div className="modal-container">
         <div className="movie-details">
           <article className="movie-details-window">
             <div className="movie-details-backdrop-img" style={myStyle}>
@@ -46,7 +45,6 @@ render = () => {
             </div>
           </article>
         </div>
-      </div>
     )
   } else {
     return null;
