@@ -12,7 +12,6 @@ class App extends Component {
     super();
     this.state = {
       movies: [],
-      favoriteMovies: [],
       error: null,
       isLoading: true
     }
@@ -22,17 +21,18 @@ class App extends Component {
     const allMovies = fetchAllMovies();
     const faveMovies = fetchFavoriteMovies();
 
-    Promise.all([allMovies, faveMovies]).then(data => {
-      const favoritedMovies = data[1].faves;
-      const moviesWithFaves = data[0].movies.map(movie => {
-        movie.favorite = favoritedMovies.includes(movie.id);
-        return movie;
-      })
-        this.setState({ movies: moviesWithFaves, isLoading: false})
-      })
-      .catch(error => {
-        this.setState({error: error.message})
-      });  
+    Promise.all([allMovies, faveMovies])
+      .then(data => {
+        const favoritedMovies = data[1].faves;
+        const moviesWithFaves = data[0].movies.map(movie => {
+          movie.favorite = favoritedMovies.includes(movie.id);
+          return movie;
+        })
+          this.setState({ movies: moviesWithFaves, isLoading: false})
+        })
+        .catch(error => {
+          this.setState({error: error.message})
+        });
   }
 
   addFavorite = (newMovie) => {
