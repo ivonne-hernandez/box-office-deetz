@@ -14,6 +14,7 @@ const MoviesContainer = ({ movies, addFavorite }) => {
         id={movie.id}
         key={movie.id}
         addFavorite={addFavorite}
+        favorite={movie.favorite}
       />
     )
   });
