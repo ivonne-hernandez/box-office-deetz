@@ -2,7 +2,7 @@ import React from 'react';
 import MovieCard from './MovieCard';
 import '../styles/MoviesContainer.css';
 
-const MoviesContainer = ({ movies, addFavorite }) => {
+const MoviesContainer = ({ movies, toggleFavorite }) => {
   const movieCards = movies.map(movie => {
     return (
       <MovieCard
@@ -13,7 +13,7 @@ const MoviesContainer = ({ movies, addFavorite }) => {
         backdrop={movie.backdrop_path}
         id={movie.id}
         key={movie.id}
-        addFavorite={addFavorite}
+        toggleFavorite={toggleFavorite}
         favorite={movie.favorite}
       />
     )

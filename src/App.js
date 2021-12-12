@@ -35,12 +35,12 @@ class App extends Component {
         });
   }
 
-  addFavorite = (newMovie) => {
+  toggleFavorite = (newMovie) => {
     postFavoriteMovie(newMovie)
       .then(data => {
         const updatedMovies = this.state.movies.map(movie => {
           if (movie.id === data.id) {
-            movie.favorite = true;
+            movie.favorite = !movie.favorite;
           }
           return movie;
         })
@@ -63,7 +63,7 @@ class App extends Component {
             <Home 
               movies={this.state.movies} 
               isLoading={this.state.isLoading} 
-              addFavorite={this.addFavorite} 
+              toggleFavorite={this.toggleFavorite} 
             />
           }
           />

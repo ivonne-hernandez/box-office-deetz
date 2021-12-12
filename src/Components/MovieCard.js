@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router';
 import '../styles/MovieCard.css';
 
-const MovieCard = ({ title, poster, averageRating, releaseDate, id, backdrop, addFavorite }) => {
+const MovieCard = ({ title, poster, averageRating, releaseDate, id, backdrop, toggleFavorite }) => {
   let navigate = useNavigate();
  
   return (
@@ -23,7 +23,7 @@ const MovieCard = ({ title, poster, averageRating, releaseDate, id, backdrop, ad
           // }
           
           // addFavorite(newFavoriteMovie);
-          addFavorite({id: id});
+          toggleFavorite({id: id});
        }}>
         Test Post Favorite
       </button>
