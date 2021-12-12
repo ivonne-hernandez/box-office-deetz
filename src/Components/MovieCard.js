@@ -13,16 +13,17 @@ const MovieCard = ({ title, poster, averageRating, releaseDate, id, backdrop, ad
       <p className="movieCardReleaseDate">Release Date: {releaseDate}</p>
       <button 
         onClick={() => {
-          const newFavoriteMovie = {
-            id: id,
-            poster_path: poster,
-            backdrop_path: backdrop,
-            title: title,
-            average_rating: averageRating,
-            release_date: releaseDate
-          }
+          // const newFavoriteMovie = {
+          //   id: id,
+          //   poster_path: poster,
+          //   backdrop_path: backdrop,
+          //   title: title,
+          //   average_rating: averageRating,
+          //   release_date: releaseDate
+          // }
           
-          addFavorite(newFavoriteMovie);
+          // addFavorite(newFavoriteMovie);
+          addFavorite({id: id});
        }}>
         Test Post Favorite
       </button>
