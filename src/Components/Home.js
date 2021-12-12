@@ -1,7 +1,7 @@
 import React from 'react';
 import MoviesContainer from './MoviesContainer';
 
-const Home = ({ movies, toggleFavorite, isLoading }) => {
+const Home = ({ movies, addFavorite, isLoading, deleteFavorite }) => {
   if (isLoading) {
     return (
       <div>Loading...</div>
@@ -11,7 +11,8 @@ const Home = ({ movies, toggleFavorite, isLoading }) => {
       <div>
         <MoviesContainer 
           movies={movies}
-          toggleFavorite={toggleFavorite}
+          addFavorite={addFavorite}
+          deleteFavorite={deleteFavorite}
         />
       </div>
     )

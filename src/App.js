@@ -4,7 +4,7 @@ import Home from './Components/Home';
 import Header from './Components/Header';
 import Error from './Components/Error';
 import MovieDetailsContainer from './Components/MovieDetailsContainer';
-import { fetchAllMovies, fetchFavoriteMovies, postFavoriteMovie } from './api-Calls';
+import { fetchAllMovies, fetchFavoriteMovies, postFavoriteMovie, deleteFavoriteMovie } from './api-Calls';
 import './App.css';
 
 class App extends Component {
@@ -29,18 +29,37 @@ class App extends Component {
           return movie;
         })
           this.setState({ movies: moviesWithFaves, isLoading: false})
+          console.log(`compDidMount state.movies:`, this.state.movies)
         })
         .catch(error => {
           this.setState({error: error.message})
         });
   }
 
-  toggleFavorite = (newMovie) => {
+  addFavorite = (newMovie) => {
     postFavoriteMovie(newMovie)
       .then(data => {
+        console.log(`addFave state.movies:`, this.state.movies)
         const updatedMovies = this.state.movies.map(movie => {
           if (movie.id === data.id) {
-            movie.favorite = !movie.favorite;
+            movie.favorite = true;
+          }
+          return movie;
+        })
+        this.setState({ movies: updatedMovies });
+      })
+      .catch(error => {
+        this.setState({error: error.message})
+      });
+  }
+
+  deleteFavorite = (id) => {
+    deleteFavoriteMovie(id)
+      .then(data => {
+        console.log(`deleteFave state.movies:`, this.state.movies)
+        const updatedMovies = this.state.movies.map(movie => {
+          if (movie.id === data.id) {
+            movie.favorite = false;
           }
           return movie;
         })
@@ -63,7 +82,8 @@ class App extends Component {
             <Home 
               movies={this.state.movies} 
               isLoading={this.state.isLoading} 
-              toggleFavorite={this.toggleFavorite} 
+              addFavorite={this.addFavorite} 
+              deleteFavorite={this.deleteFavorite}
             />
           }
           />

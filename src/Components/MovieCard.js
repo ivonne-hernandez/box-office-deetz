@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router';
 import '../styles/MovieCard.css';
 
-const MovieCard = ({ title, poster, averageRating, releaseDate, id, backdrop, toggleFavorite, favorite }) => {
+const MovieCard = ({ title, poster, averageRating, releaseDate, id, backdrop, favorite, addFavorite, deleteFavorite }) => {
   let navigate = useNavigate();
  
   return (
@@ -13,13 +13,12 @@ const MovieCard = ({ title, poster, averageRating, releaseDate, id, backdrop, to
       <p className="movieCardReleaseDate">Release Date: {releaseDate}</p>
       <button 
         onClick={() => {
-          // if (favorite) {
-          //   deleteFavorite()
-          // } 
-          // else {
-            // addFavorite({id: id});
-            toggleFavorite({id: id});
-          // }
+          if (favorite) {
+            deleteFavorite(id);
+          } 
+          else {
+            addFavorite({id: id});
+          }
        }}>
         Test Post Favorite
       </button>
