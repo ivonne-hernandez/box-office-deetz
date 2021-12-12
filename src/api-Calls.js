@@ -44,9 +44,21 @@ const postFavoriteMovie = (newMovie) => {
     })
 }
 
+const deleteFavoriteMovie = (id) => {
+  return fetch(`http://localhost:3001/api/v1/favorite-movies/${id}`, {
+    method: 'DELETE'})
+    .then(response => {
+      if(!response.ok) {
+        throw new Error(`${response.status} ${response.statusText}`);
+      }
+      return response.json();
+    })
+}
+
 module.exports = {
   fetchAllMovies,
   fetchSingleMovie,
   fetchFavoriteMovies,
   postFavoriteMovie,
+  deleteFavoriteMovie
 }
