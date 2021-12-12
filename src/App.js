@@ -32,15 +32,19 @@ class App extends Component {
       })
       .catch(error => {
         this.setState({error: error.message})
-      });
+      });  
   }
 
   addFavorite = (newMovie) => {
     postFavoriteMovie(newMovie)
       .then(data => {
-        this.setState({
-          favoriteMovies: [...this.state.favoriteMovies, data.id]
-        });
+        const updatedMovies = this.state.movies.map(movie => {
+          if (movie.id === data.id) {
+            movie.favorite = true;
+          }
+          return movie;
+        })
+        this.setState({ movies: updatedMovies });
       })
       .catch(error => {
         this.setState({error: error.message})
