@@ -6,6 +6,7 @@ import Error from './Components/Error';
 import MovieDetailsContainer from './Components/MovieDetailsContainer';
 import { fetchAllMovies, fetchFavoriteMovies, postFavoriteMovie, deleteFavoriteMovie } from './api-Calls';
 import './App.css';
+import Favorites from './Components/Favorites';
 
 class App extends Component {
   constructor() {
@@ -86,6 +87,7 @@ class App extends Component {
           }
           />
           <Route path="/:id" element={<MovieDetailsContainer/>}/>
+          <Route path="/favorites" element={<Favorites />}/>
         </Routes>       
       </div>
     );
