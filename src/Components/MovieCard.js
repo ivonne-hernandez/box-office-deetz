@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router';
 import '../styles/MovieCard.css';
 import star from '../styles/star.svg';
+import faveStar from '../styles/faveStar.svg';
 
 const MovieCard = ({ title, poster, averageRating, releaseDate, id, backdrop, favorite, addFavorite, deleteFavorite }) => {
   let navigate = useNavigate();
@@ -9,7 +10,7 @@ const MovieCard = ({ title, poster, averageRating, releaseDate, id, backdrop, fa
   return (
     <article id ={id} className="movieCard">
       <div>
-        <img src={star} className="favorite-button"
+        <img src={ favorite ? faveStar: star} className="favorite-button"
           onClick={() => {
             if (favorite) {
               deleteFavorite(id);
