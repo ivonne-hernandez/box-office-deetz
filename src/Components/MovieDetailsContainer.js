@@ -3,7 +3,7 @@ import MovieDetails from './MovieDetails';
 import { useNavigate } from 'react-router';
 import { useParams } from 'react-router-dom';
 
-const MovieDetailsContainer = () => {
+const MovieDetailsContainer = ({ addFavorite, deleteFavorite }) => {
   let navigate = useNavigate();
   let { id } = useParams();
   
@@ -15,6 +15,8 @@ const MovieDetailsContainer = () => {
     <MovieDetails
       selectedMovie={id}
       closeMovieDetails={closeMovieDetails}
+      addFavorite={addFavorite}
+      deleteFavorite={deleteFavorite}
     />
   );
 }
