@@ -17,8 +17,8 @@ describe('Box Office Deetz Test', () => {
         .children('article[class="movie-card"]')
         .children('img')
         .siblings('h2')
-        .siblings('p[class="movieCardRating"]')
-        .siblings('p[class="movieCardReleaseDate"]')
+        .siblings('p[class="movie-card-rating"]')
+        .siblings('p[class="movie-card-release-date"]')
     });
 
     it('Should be able to load a movieDetails page', () => {
@@ -27,7 +27,8 @@ describe('Box Office Deetz Test', () => {
         .intercept('GET', '/api/v2/movies/337401', {
             fixture: 'sampleMovie.json'
         })
-        .get('div[class="modal"]')
+        .get('div[class="movie-details"]')
+        .get('div[class="movie-content"]')
         .contains("Mulan")
     });
 

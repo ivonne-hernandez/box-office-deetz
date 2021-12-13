@@ -22,8 +22,8 @@ const MovieCard = ({ title, poster, averageRating, releaseDate, id, backdrop, fa
       </div>
       {<img src={poster} alt={ title + ` poster`}  onClick={() => navigate(`/${id}`)} className='movieCardPoster'/>}
       <h2>{title}</h2>
-      <p className="movieCardRating">Average Rating: {Number(averageRating.toFixed(2))} / 10</p>
-      <p className="movieCardReleaseDate">Release Date: {releaseDate}</p>
+      <p className="movie-card-rating">Average Rating: {Number(averageRating.toFixed(2))} / 10</p>
+      <p className="movie-card-release-date">Release Date: {releaseDate}</p>
     </article>
   )
 }
