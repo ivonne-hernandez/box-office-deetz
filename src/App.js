@@ -37,7 +37,7 @@ class App extends Component {
   }
 
   addFavorite = (newMovie) => {
-    postFavoriteMovie(newMovie)
+    return postFavoriteMovie(newMovie)
       .then(data => {
         const updatedMovies = this.state.movies.map(movie => {
           if (movie.id === data.id) {
@@ -46,6 +46,7 @@ class App extends Component {
           return movie;
         })
         this.setState({ movies: updatedMovies });
+        return data;
       })
       .catch(error => {
         this.setState({error: error.message});
@@ -53,7 +54,7 @@ class App extends Component {
   }
 
   deleteFavorite = (id) => {
-    deleteFavoriteMovie(id)
+    return deleteFavoriteMovie(id)
       .then(data => {
         const matchingId = Number(data.id);
         const updatedMovies = this.state.movies.map(movie => {
@@ -63,6 +64,7 @@ class App extends Component {
           return movie;
         })
         this.setState({ movies: updatedMovies });
+        return data;
       })
       .catch(error => {
         this.setState({error: error.message});
@@ -86,7 +88,13 @@ class App extends Component {
             />
           }
           />
-          <Route path="/:id" element={<MovieDetailsContainer/>}/>
+          <Route path="/:id" element={
+            <MovieDetailsContainer 
+              addFavorite={this.addFavorite}
+              deleteFavorite={this.deleteFavorite} 
+            />
+          }
+          />
           <Route path="/favorites" element={<Favorites
               movies={this.state.movies} 
               isLoading={this.state.isLoading} 

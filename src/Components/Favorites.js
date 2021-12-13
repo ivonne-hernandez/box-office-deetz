@@ -1,7 +1,7 @@
 import React from 'react';
 import MovieCard from './MovieCard';
 import star from '../styles/star.svg';
-import Favorite from '../styles/Favorite.css';
+import '../styles/Favorite.css';
 
 const Favorites = ({ movies, addFavorite, deleteFavorite }) =>  {
   const favoriteMovies = movies.filter(movie => movie.favorite)
@@ -27,7 +27,7 @@ const Favorites = ({ movies, addFavorite, deleteFavorite }) =>  {
     !favoriteMovieCards.length ? 
       <div className="no-favorites">
         <span className="no-favorites-p1">Click the </span>
-        <img src={star} className="no-favorites-star"/> 
+        <img src={star} alt="star" className="no-favorites-star"/> 
         <span className="no-favorites-p2"> icon on a Movie to add it to your Favorites list.</span>
       </div>
       : <main className="movie-container fave-movie-container">
