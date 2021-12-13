@@ -1,0 +1,20 @@
+.no-favorites {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: self-end;
+}
+.no-favorites-star {
+  height: 40px;
+  width: 40px;
+}
+
+.no-favorites-star:hover {
+  transform: scale(1.1);
+}
+
+.no-favorites-p1,
+.no-favorites-p2 {
+  padding-top: 50px;
+  font-size: 32px;
+}
