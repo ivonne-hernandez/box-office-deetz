@@ -52,10 +52,10 @@ describe('Box Office Deetz Test', () => {
 
     it('Should be able to load the correct movie details page given a specific URL', () => {
       cy.visit('http://localhost:3000/337401')
-        .get('div[class="modal-backdrop-img"]')
+        .get('div[class="movie-details-backdrop-img"]')
         .get('img[alt="Mulan poster"]')
-        .get('div[class="modal-title"]')
-        .get('p[id="average-rating"]')
+        .get('div[class="movie-details-title"]')
+        .contains('Mulan')
     });
 
     it('Should be able to load the home page when the user hits refresh', () => {
@@ -64,12 +64,12 @@ describe('Box Office Deetz Test', () => {
         .get('img')
         .get('h1[class="headerTitle"]')
         .contains('Box Office Deetz')
-        .get('main[class="movieContainer"]')
-        .children('article[class="movieCard"]')
+        .get('main[class="movie-container"]')
+        .children('article[class="movie-card"]')
         .children('img[alt="Mulan poster"]')
         .siblings('h2')
-        .siblings('p[class="movieCardRating"]')
-        .siblings('p[class="movieCardReleaseDate"]')
+        .siblings('p[class="movie-card-rating"]')
+        .siblings('p[class="movie-card-release-date"]')
     });
 
     it('Should be able to load the movie details page when the user hits refresh', () => {
@@ -77,8 +77,7 @@ describe('Box Office Deetz Test', () => {
         .reload()
         .get('div[alt="Mulan backdrop img"]')
         .get('img[alt="Mulan poster"]')
-        .get('div[class="modal-title"]')
+        .get('div[class="movie-details-title"]')
         .contains('Mulan')
-        .get('p[id="average-rating"]')
     });
 });

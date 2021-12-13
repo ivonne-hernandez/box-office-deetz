@@ -39,7 +39,7 @@ render = () => {
     return (
         <div className="movie-details">
           <article className="movie-details-window">
-            <div className="movie-details-backdrop-img" style={myStyle}>
+            <div className="movie-details-backdrop-img" style={myStyle} alt={this.state.movie.title + ` backdrop img`}>
             </div>
             
             <img src={this.state.movie.poster_path} alt={this.state.movie.title + ` poster`} className="movie-details-poster"/>
