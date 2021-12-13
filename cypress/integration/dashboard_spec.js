@@ -109,10 +109,20 @@ describe('Box Office Deetz Test', () => {
     })
 
 
-    // From a movie details page, the user should be able to navigate to the favorites page.
-
-
     // From the favorites page, a user should be able to click the star to unfavorite a movie, and that movie card should be removed from the page.
+      
+    it('Should be able to visit the favorites page, unfavorite a movie card, and that movie card should no longer be present on the page.', () => {
+      cy.visit('http://localhost:3000/favorites')
+      .get('main[class="movie-container"]')
+      .get('article[id=337401]')
+      .children('div')
+      .children('img[class="favorite-button"]')
+      .click()
+      .get('p[class="no-favorites-p"]')
+      .contains("Looks like there aren't any Favorites Yet - Click the Star Icon on a Movie to Add it to Your Favorites List!")
+    })
+    
+
 
     // If the user unfavorites a movie card from the favorites page, they should be able to return to the home page and see that the movie is unfavorited.
 
