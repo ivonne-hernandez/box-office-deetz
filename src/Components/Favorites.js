@@ -1,9 +1,32 @@
 import React from 'react';
+import MovieCard from './MovieCard';
 
-function Favorites() {
+const Favorites = ({ movies, addFavorite, isLoading, deleteFavorite }) =>  {
+    const favoriteMovies = movies.filter((movie) => {
+        return movie.favorite
+    })
+
+    const favoriteMovieCards = favoriteMovies.map(movie => {
+    return (
+      <MovieCard
+        title={movie.title}
+        poster={movie.poster_path}
+        averageRating={movie.average_rating}
+        releaseDate={movie.release_date}
+        backdrop={movie.backdrop_path}
+        id={movie.id}
+        key={movie.id}
+        favorite={movie.favorite}
+        addFavorite={addFavorite}
+        deleteFavorite={deleteFavorite}
+      />
+    )
+  });
+
+    console.log(favoriteMovies)
     return(
-        <main className="favorites-menu">
-            <p>This will be the favorites page.</p>
+        <main className="movie-container">
+            {favoriteMovieCards}
         </main>
     )
 }
