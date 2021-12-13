@@ -10,7 +10,9 @@ const MovieCard = ({ title, poster, averageRating, releaseDate, id, backdrop, fa
   return (
     <article id ={id} className="movieCard">
       <div className="star-container">
-        <img src={favorite ? faveStar: star} 
+        <img 
+          alt="favoriting star"
+          src={favorite ? faveStar: star} 
           className="favorite-button"
           onClick={() => {
             if (favorite) {
