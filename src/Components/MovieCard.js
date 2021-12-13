@@ -13,7 +13,7 @@ const MovieCard = ({ title, poster, averageRating, releaseDate, id, backdrop, fa
         <img 
           alt="favoriting star"
           src={favorite ? faveStar: star} 
-          className="favorite-button"
+          className={favorite ? "unfavorite-button" : "favorite-button"}
           onClick={() => {
             if (favorite) {
               deleteFavorite(id);

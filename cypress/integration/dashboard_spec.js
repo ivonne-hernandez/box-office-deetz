@@ -131,8 +131,13 @@ describe('Box Office Deetz Test', () => {
       .get('main[class="movie-container fave-movie-container"]')
       .get('article[id=337401]')
       .children('div')
-      .children('img[class="favorite-button"]')
+      .children('img[class="unfavorite-button"]')
       .click()
+      .intercept('GET', '/api/v1/favorite-movies', {
+        body: {
+          faves: []
+        }
+      })
       .get('div[class="no-favorites"]')
     })
     
@@ -140,12 +145,44 @@ describe('Box Office Deetz Test', () => {
 
     // If the user unfavorites a movie card from the favorites page, they should be able to return to the home page and see that the movie is unfavorited.
 
-    // If the user unfavorites a movie card from the movie details page, they should be able to return to the home page and see that the movie is unfavorited.
+    it('Should be able to unfavorite a movie from the favorites page, return to the homepage, and see that the movie is no longer favorited.', () => {
+      cy.get('article[id=337401]')
+      .children('div')
+      .children('img[class="favorite-button"]')
+      .click()
+      .intercept('GET', '/api/v1/favorite-movies', {
+        body: {
+          faves: ['337401']
+        }
+      })
+      .get('div[class="header"]')
+      .contains('Favorite Movies')
+      .click()
+      // .get('main[class="movie-container fave-movie-container"]')
+      .get('article[id=337401]')
+      .children('div')
+      .children('img[class="unfavorite-button"]')
+      .click()
+     .get('div[class="header"]')
+      .contains('Home')
+      .click()
+      .get('article[id=337401]')
+      .children('div')
+      .children('img[class="favorite-button"]')
 
+
+    })
+
+    // If the user unfavorites a movie card from the movie details page, they should be able to return to the home page and see that the movie is unfavorited.
+    it('Should be able to unfavorite a movie from the movie details page, return to the homepage, and see that the movie is no longer favorited.', () => {
+      
+    })
 
 
     // If the user unfavorites a movie card from the movie details page, they should be able to return to the favorites page and not see that movie card on the page.
-
+    it('Should be able to unfavorite a movie from the movie details page, return to the favorites page, and see that the movie is not present.', () => {
+      
+    })
 
 
 

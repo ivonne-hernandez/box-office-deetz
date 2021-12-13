@@ -36,6 +36,15 @@ p {
   transform: scale(1.25);
 }
 
+.unfavorite-button {
+  height: 40px;
+  width: 40px;
+}
+
+.unfavorite-button:hover {
+  transform: scale(1.25);
+}
+
 .star-container {
   display: flex;
   justify-content: flex-end;
