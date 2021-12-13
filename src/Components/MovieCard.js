@@ -7,7 +7,7 @@ const MovieCard = ({ title, poster, averageRating, releaseDate, id, backdrop, fa
   let navigate = useNavigate();
  
   return (
-    <article id ={id} className="movieCard" onClick={() => navigate(`/${id}`)}>
+    <article id ={id} className="movieCard">
       <div>
         <img src={star} className="favorite-button"
           onClick={() => {
@@ -20,7 +20,7 @@ const MovieCard = ({ title, poster, averageRating, releaseDate, id, backdrop, fa
           }}
         />
       </div>
-      {<img src={poster} alt={ title + ` poster`} className='movieCardPoster'/>}
+      {<img src={poster} alt={ title + ` poster`}  onClick={() => navigate(`/${id}`)} className='movieCardPoster'/>}
       <h2>{title}</h2>
       <p className="movieCardRating">Average Rating: {Number(averageRating.toFixed(2))} / 10</p>
       <p className="movieCardReleaseDate">Release Date: {releaseDate}</p>

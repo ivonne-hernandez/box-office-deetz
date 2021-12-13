@@ -21,7 +21,7 @@ const MoviesContainer = ({ movies, addFavorite, deleteFavorite }) => {
   });
   
   return (
-    <main className="movieContainer">
+    <main className="movie-container">
       {movieCards}
     </main>
   );

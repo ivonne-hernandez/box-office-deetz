@@ -2,11 +2,20 @@
   box-sizing: border-box;
   margin: 0px;
 }
+body {
+  background-color: #13181a;
+  background-size: 100% 100%;
+  background-repeat: repeat;
+  background-position: center;
+}
+
 .App {
   text-align: center;
   background-color: #13181a;
+  height: 100%;
   color:white;
   font-family: Russo One;
+  margin: 0;
 }
 
 
