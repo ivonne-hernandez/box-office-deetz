@@ -4,10 +4,10 @@ import clapper from '../movie_clapper.svg';
 
 function Header() {
   return (
-    <div className='header'>
+    <aside className='header'>
+      {/* <img src={clapper} className="clapper"  alt="clapper"/> */}
       <h1>Box Office Deetz</h1>
-      <img src={clapper} className="clapper"  alt="clapper"/>
-    </div>
+    </aside>
   )
 }
 
