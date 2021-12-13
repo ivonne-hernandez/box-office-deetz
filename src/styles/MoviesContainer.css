@@ -9,3 +9,13 @@
   background-position: center;
   height: 100%;
 }
+
+
+.no-favorites-p {
+  justify-self: center;
+  grid-column-start: 2;
+  grid-column-end: 5;
+  font-size: xx-large;
+  font-weight: 200;
+  font-weight: bold;
+}

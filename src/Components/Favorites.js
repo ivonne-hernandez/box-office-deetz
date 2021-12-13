@@ -26,7 +26,7 @@ const Favorites = ({ movies, addFavorite, isLoading, deleteFavorite }) =>  {
     console.log(favoriteMovies)
     return(
         <main className="movie-container">
-            {favoriteMovieCards.length === 0 ? <p>Looks like there aren't any Favorites Yet - Click the Star Icon on a Movie to Add it to Your Favorites List!</p> : favoriteMovieCards}
+            {favoriteMovieCards.length === 0 ? <p className="no-favorites-p">Looks like there aren't any Favorites Yet - Click the Star Icon on a Movie to Add it to Your Favorites List!</p> : favoriteMovieCards}
         </main>
     )
 }
