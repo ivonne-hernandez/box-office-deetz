@@ -27,7 +27,7 @@ describe('Box Office Deetz Test', () => {
         .intercept('GET', '/api/v2/movies/337401', {
             fixture: 'sampleMovie.json'
         })
-        .get('div[class="movie-details"]')
+        .get('article[class="movie-details-window"]')
         .get('div[class="movie-content"]')
         .contains("Mulan")
     });
