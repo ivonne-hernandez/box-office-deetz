@@ -40,8 +40,7 @@ describe('Box Office Deetz Test', () => {
     });
 
     it('Should be able to click on the back and forward buttons in the browser to navigate to previously selected paths', () => {
-      cy.visit('http://localhost:3000/')
-        .get('article[id=337401]')
+      cy.get('article[id=337401]')
         .click()
         .url('http://localhost:3000/337401')
         .go('back')
@@ -87,6 +86,16 @@ describe('Box Office Deetz Test', () => {
 
     // From the homepage, A user should be able to favorite a movie, and navigate to the favorites page and see that movie on the page.
 
+    it('Should be able to favorite a movie on the homepage and navigate to the favorites page and see the movie that was favorited.', () => {
+      cy.get('article[id=337401]')
+      .children('div')
+      .children('img[class="favorite-button"]')
+      .click()
+      .visit('http://localhost:3000/favorites')
+      .get('main[class="movie-container"]')
+      .get('article[id=337401]')
+
+    })
 
 
     // From the homepage, if a user doesn't have any favorite movies - they should see a message on the page that tells them to favorite a movie.
