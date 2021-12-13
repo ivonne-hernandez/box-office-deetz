@@ -86,7 +86,12 @@ describe('Box Office Deetz Test', () => {
     // From the homepage, if a user doesn't have any favorite movies - they should see a message on the page that tells them to favorite a movie.
 
     it('Should be able to show a message on the favorites page if the user does not have any favorited movies', () => {
-      cy.get('div[class="header"]')
+      cy.intercept('GET', '/api/v1/favorite-movies', {
+        body: {
+          faves: []
+        }
+      })
+      .get('div[class="header"]')
       .contains('Favorite Movies')
       .click()
       .url('http://localhost:3000/favorites')
@@ -102,7 +107,17 @@ describe('Box Office Deetz Test', () => {
       .children('div')
       .children('img[class="favorite-button"]')
       .click()
+      .intercept('POST', '/api/v1/favorite-movies', {
+        body: {
+          id: '337401'
+        }
+      })
       .visit('http://localhost:3000/favorites')
+      .intercept('GET', '/api/v1/favorite-movies', {
+        body: {
+          faves: ['337401']
+        }
+      })
       .get('main[class="movie-container"]')
       .get('article[id=337401]')
 
