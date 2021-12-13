@@ -80,4 +80,32 @@ describe('Box Office Deetz Test', () => {
         .get('div[class="movie-details-title"]')
         .contains('Mulan')
     });
-});
+
+    // From the homepage, a user should be able to click the star on a movie card and favorite a movie and see that the star changes colors
+    // it('Should be able to ')
+
+
+    // From the homepage, A user should be able to favorite a movie, and navigate to the favorites page and see that movie on the page.
+
+
+
+    // From the homepage, if a user doesn't have any favorite movies - they should see a message on the page that tells them to favorite a movie.
+
+    // From a movie details page, the user should be able to navigate to the favorites page.
+
+
+    // From the favorites page, a user should be able to click the star to unfavorite a movie, and that movie card should be removed from the page.
+
+    // If the user unfavorites a movie card from the favorites page, they should be able to return to the home page and see that the movie is unfavorited.
+
+    // If the user unfavorites a movie card from the movie details page, they should be able to return to the home page and see that the movie is unfavorited.
+
+
+
+    // If the user unfavorites a movie card from the movie details page, they should be able to return to the favorites page and not see that movie card on the page.
+
+
+
+
+
+  });
