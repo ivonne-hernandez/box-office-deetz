@@ -3,7 +3,7 @@
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 20px;
-  background-color: #607d8b;
+  background-color: #13181a;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

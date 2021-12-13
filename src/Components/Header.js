@@ -15,7 +15,7 @@ function Header() {
 
   return (
     <div className='header'>
-      <h1>Box Office Deetz</h1>
+      <h1 className='headerTitle'>Box Office Deetz</h1>
       {headerLink}
     </div>
   )

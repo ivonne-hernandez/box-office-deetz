@@ -6,9 +6,8 @@ describe('Box Office Deetz Test', () => {
       cy.visit('http://localhost:3000');
     });
 
-    it('the header should contain the name of the application and the clapper logo image', () => {
+    it('the header should contain the name of the application', () => {
       cy.get('div[class="header"]')
-        .get('img')
         .get('h1[class="headerTitle"]')
         .contains('Box Office Deetz')
     });
