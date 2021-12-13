@@ -7,7 +7,7 @@ const MovieCard = ({ title, poster, averageRating, releaseDate, id, backdrop, fa
   let navigate = useNavigate();
  
   return (
-    <article id ={id} className="movieCard">
+    <article id ={id} className="movie-card">
       <div>
         <img src={star} className="favorite-button"
           onClick={() => {

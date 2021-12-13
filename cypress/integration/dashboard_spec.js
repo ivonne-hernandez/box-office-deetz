@@ -13,8 +13,8 @@ describe('Box Office Deetz Test', () => {
     });
 
     it('should have a container component for all movie cards', () => {
-      cy.get('main[class="movieContainer"]')
-        .children('article[class="movieCard"]')
+      cy.get('main[class="movie-container"]')
+        .children('article[class="movie-card"]')
         .children('img')
         .siblings('h2')
         .siblings('p[class="movieCardRating"]')
