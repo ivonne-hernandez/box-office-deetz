@@ -9,8 +9,9 @@ const MovieCard = ({ title, poster, averageRating, releaseDate, id, backdrop, fa
  
   return (
     <article id ={id} className="movieCard">
-      <div>
-        <img src={ favorite ? faveStar: star} className="favorite-button"
+      <div className="star-container">
+        <img src={favorite ? faveStar: star} 
+          className="favorite-button"
           onClick={() => {
             if (favorite) {
               deleteFavorite(id);
@@ -21,7 +22,11 @@ const MovieCard = ({ title, poster, averageRating, releaseDate, id, backdrop, fa
           }}
         />
       </div>
-      {<img src={poster} alt={ title + ` poster`}  onClick={() => navigate(`/${id}`)} className='movieCardPoster'/>}
+      <img src={poster} 
+        alt={ title + ` poster`}  
+        className='movieCardPoster'
+        onClick={() => navigate(`/${id}`)} 
+      />
       <h2>{title}</h2>
       <p className="movieCardRating">Average Rating: {Number(averageRating.toFixed(2))} / 10</p>
       <p className="movieCardReleaseDate">Release Date: {releaseDate}</p>
