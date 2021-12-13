@@ -17,7 +17,6 @@ function Header() {
     <div className='header'>
       <h1>Box Office Deetz</h1>
       {headerLink}
-      <img src={clapper} className="clapper"  alt="clapper"/>
     </div>
   )
 }
