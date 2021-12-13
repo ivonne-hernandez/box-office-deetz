@@ -9,7 +9,6 @@ import {useLocation} from 'react-router-dom'
 function Header() {
 
   const location = useLocation()
-  console.log(location)
 
   let headerLink  
   location.pathname === '/favorites' ? headerLink = <NavLink to="/">Home</NavLink> : headerLink = <NavLink to="/favorites">Favorite Movies</NavLink>
