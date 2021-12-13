@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom'
 import '../styles/Header.css'
-import clapper from '../movie_clapper.svg';
 import {useLocation} from 'react-router-dom'
 
 

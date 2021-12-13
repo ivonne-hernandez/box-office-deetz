@@ -1,12 +1,12 @@
 import React from 'react';
 import MovieCard from './MovieCard';
+import star from '../styles/star.svg';
+import '../styles/Favorite.css';
 
-const Favorites = ({ movies, addFavorite, isLoading, deleteFavorite }) =>  {
-    const favoriteMovies = movies.filter((movie) => {
-        return movie.favorite
-    })
+const Favorites = ({ movies, addFavorite, deleteFavorite }) =>  {
+  const favoriteMovies = movies.filter(movie => movie.favorite)
 
-    const favoriteMovieCards = favoriteMovies.map(movie => {
+  const favoriteMovieCards = favoriteMovies.map(movie => {
     return (
       <MovieCard
         title={movie.title}
@@ -23,12 +23,17 @@ const Favorites = ({ movies, addFavorite, isLoading, deleteFavorite }) =>  {
     )
   });
 
-    
-    return(
-        <main className="movie-container">
-            {favoriteMovieCards.length === 0 ? <p className="no-favorites-p">Looks like there aren't any Favorites Yet - Click the Star Icon on a Movie to Add it to Your Favorites List!</p> : favoriteMovieCards}
+  return(
+    !favoriteMovieCards.length ? 
+      <div className="no-favorites">
+        <span className="no-favorites-p1">Click the </span>
+        <img src={star} alt="star" className="no-favorites-star"/> 
+        <span className="no-favorites-p2"> icon on a Movie to add it to your Favorites list.</span>
+      </div>
+      : <main className="movie-container fave-movie-container">
+          {favoriteMovieCards}
         </main>
-    )
+  )
 }
 
-export default Favorites
+export default Favorites;
