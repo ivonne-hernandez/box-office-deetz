@@ -8,7 +8,7 @@ const MovieCard = ({ title, poster, averageRating, releaseDate, id, backdrop, fa
   let navigate = useNavigate();
  
   return (
-    <article id ={id} className="movieCard">
+    <article id ={id} className="movie-card">
       <div className="star-container">
         <img 
           alt="favoriting star"
