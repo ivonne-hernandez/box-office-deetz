@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router';
 import '../styles/MovieCard.css';
-import star from '../styles/star.svg'
+import star from '../styles/star.svg';
 
 const MovieCard = ({ title, poster, averageRating, releaseDate, id, backdrop, favorite, addFavorite, deleteFavorite }) => {
   let navigate = useNavigate();
