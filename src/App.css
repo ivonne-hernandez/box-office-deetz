@@ -5,8 +5,13 @@
 .App {
   text-align: center;
   background-color: #607d8b;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100%;
   color:white;
   font-family: Russo One;
+  margin: 0;
 }
 
 
