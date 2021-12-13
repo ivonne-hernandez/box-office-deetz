@@ -95,8 +95,8 @@ describe('Box Office Deetz Test', () => {
       .contains('Favorite Movies')
       .click()
       .url('http://localhost:3000/favorites')
-      .get('p[class="no-favorites-p"]')
-      .contains("Looks like there aren't any Favorites Yet - Click the Star Icon on a Movie to Add it to Your Favorites List!")
+      .get('div[class="no-favorites"]')
+      
     })
 
 
@@ -118,7 +118,7 @@ describe('Box Office Deetz Test', () => {
           faves: ['337401']
         }
       })
-      .get('main[class="movie-container"]')
+      .get('main[class="movie-container fave-movie-container"]')
       .get('article[id=337401]')
 
     })
@@ -128,13 +128,12 @@ describe('Box Office Deetz Test', () => {
       
     it('Should be able to visit the favorites page, unfavorite a movie card, and that movie card should no longer be present on the page.', () => {
       cy.visit('http://localhost:3000/favorites')
-      .get('main[class="movie-container"]')
+      .get('main[class="movie-container fave-movie-container"]')
       .get('article[id=337401]')
       .children('div')
       .children('img[class="favorite-button"]')
       .click()
-      .get('p[class="no-favorites-p"]')
-      .contains("Looks like there aren't any Favorites Yet - Click the Star Icon on a Movie to Add it to Your Favorites List!")
+      .get('div[class="no-favorites"]')
     })
     
 

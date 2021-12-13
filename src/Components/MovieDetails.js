@@ -84,7 +84,7 @@ class MovieDetails extends React.Component {
                 }}
               />
             </div>
-            <div className="movie-details-backdrop-img" 
+            <div className="movie-details-backdrop-img" alt={this.state.movie.title + ` backdrop img`}
               style={myStyle}>
             </div>
             <img src={this.state.movie.poster_path} alt={this.state.movie.title + ` poster`} className="movie-details-poster"/>
