@@ -30,6 +30,7 @@ Mod3 2108 FE
    - The project spec & rubric can be found [here](https://frontend.turing.edu/projects/module-3/rancid-tomatillos-v3.html)
 
 
+<img width="1436" alt="Screen Shot 2021-12-13 at 8 22 57 PM" src="https://user-images.githubusercontent.com/87510749/145922898-42608d90-65b2-48e2-ae90-d1997e0991a8.png">
 
 
 
@@ -40,8 +41,12 @@ Mod3 2108 FE
   
   From the home page, a user can browse the list of available movies and can click on a specific movie's poster to view more details about that movie, or can click on the star icon on the top right of the card to 'Favorite' or 'Unfavorite' that movie. The user is also able to 'Favorite' or 'Unfavorite' movies directly from the movie details page. 
   
+  <img width="1436" alt="Screen Shot 2021-12-13 at 8 23 23 PM" src="https://user-images.githubusercontent.com/87510749/145923108-a9ddebc6-6cae-4c21-a372-3474c70c283d.png">
+
+  
   The user has access to a 'Favorites' page, where any movies that have been favorited by the user will appear. This information is stored in the **[express server](https://github.com/colganmeanor/box-office-deetz-API)**, which allows the user the ability to refresh the page, or leave and browse back again, and the same movies favorited during their session will remain favorited. NOTE: Disrupting connection to the express server will disrupt the ability to use the application, and the server must be restarted in order to continue browsing the app. 
 
+<img width="1057" alt="Screen Shot 2021-12-13 at 8 27 59 PM" src="https://user-images.githubusercontent.com/87510749/145923119-7df79a75-1b81-4207-981c-65de1f708389.png">
 
   The goal of this project was to build an application using the React Framework, using functional and class based components to keep the DOM updated with the data model / state of the application. This project was created using the 'creat-react-app' npx command line, and built out from there. 
 
