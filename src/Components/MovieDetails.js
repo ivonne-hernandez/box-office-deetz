@@ -70,7 +70,7 @@ class MovieDetails extends React.Component {
               <img 
                 alt="favoriting star"
                 src={this.state.movie.favorite ? faveStar: star} 
-                className="favorite-button"
+                className={this.state.movie.favorite ? "unfavorite-button" : "favorite-button"}
                 onClick={() => {
                   if (this.state.movie.favorite) {
                     this.deleteFavorite(this.state.movie.id);
@@ -85,7 +85,7 @@ class MovieDetails extends React.Component {
               <img 
                 src={this.state.movie.backdrop_path} 
                 className="movie-details-backdrop-img"
-                alt="backdrop"
+                alt={this.state.movie.title + ` backdrop img`}
               />
             </div>
             <div className="movie-details-title">

@@ -10,11 +10,11 @@ function Header() {
   const location = useLocation()
 
   let headerLink  
-  location.pathname === '/favorites' ? headerLink = <NavLink to="/">Home</NavLink> : headerLink = <NavLink to="/favorites">Favorite Movies</NavLink>
+  location.pathname === '/favorites' ? headerLink = <NavLink className='nav-link' to="/">Home</NavLink> : headerLink = <NavLink className='nav-link' to="/favorites">Favorite Movies</NavLink>
 
   return (
     <div className='header'>
-      <h1>Box Office Deetz</h1>
+      <h1 className='headerTitle'>Box Office Deetz</h1>
       {headerLink}
     </div>
   )

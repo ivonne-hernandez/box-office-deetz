@@ -8,12 +8,12 @@ const MovieCard = ({ title, poster, averageRating, releaseDate, id, backdrop, fa
   let navigate = useNavigate();
  
   return (
-    <article id ={id} className="movieCard">
+    <article id ={id} className="movie-card">
       <div className="star-container">
         <img 
           alt="favoriting star"
           src={favorite ? faveStar: star} 
-          className="favorite-button"
+          className={favorite ? "unfavorite-button" : "favorite-button"}
           onClick={() => {
             if (favorite) {
               deleteFavorite(id);
@@ -26,12 +26,12 @@ const MovieCard = ({ title, poster, averageRating, releaseDate, id, backdrop, fa
       </div>
       <img src={poster} 
         alt={ title + ` poster`}  
-        className='movieCardPoster'
+        className='movie-card-poster'
         onClick={() => navigate(`/${id}`)} 
       />
       <h2>{title}</h2>
-      <p className="movieCardRating">Average Rating: {Number(averageRating.toFixed(2))} / 10</p>
-      <p className="movieCardReleaseDate">Release Date: {releaseDate}</p>
+      <p className="movie-card-rating">Average Rating: {Number(averageRating.toFixed(2))} / 10</p>
+      <p className="movie-card-release-date">Release Date: {releaseDate}</p>
     </article>
   )
 }
