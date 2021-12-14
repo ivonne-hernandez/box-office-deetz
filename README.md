@@ -49,9 +49,11 @@ Mod3 2108 FE
 <img width="1057" alt="Screen Shot 2021-12-13 at 8 27 59 PM" src="https://user-images.githubusercontent.com/87510749/145923119-7df79a75-1b81-4207-981c-65de1f708389.png">
 
 **Favoriting a Movie**
+
 https://user-images.githubusercontent.com/87510749/145923854-92583a96-9d37-4077-916f-2e8676b73367.mov
 
 **Unfavoriting Movies**
+
 https://user-images.githubusercontent.com/87510749/145924056-0eb389bd-39a5-42b5-a44b-e51611300280.mov
 
 
