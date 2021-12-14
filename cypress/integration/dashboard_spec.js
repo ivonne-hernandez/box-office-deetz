@@ -39,7 +39,7 @@ describe('Box Office Deetz Test', () => {
 
     it('Should be able to click the close button in the Movie Details page and return to the Home page', () => {
       cy.visit('http://localhost:3000/337401')
-        .get('button[class="movie-details-close-button"]')
+        .get('button[class="close-button"]')
         .click()
         .url('http://localhost:3000')
     });
