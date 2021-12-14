@@ -14,30 +14,31 @@
 
 .movie-details-window {
   background-image: linear-gradient(180deg, #1d2a30, #1d2326);
-  height: 90%;
+  height: 100%;
   width: 80%;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  border-radius: 1%;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: repeat(5, min-content);
+  border-radius: 10px;
+}
+
+.movie-details-backdrop-container {
+  justify-self: center;
+  grid-column-start: 1;
+  grid-column-end: 4;
 }
 
 .movie-details-backdrop-img {
-  width: 65%;
-  justify-self: center;
-  grid-column-start: 1;
-  grid-column-end: 3;
-  background-size: cover;
-  background-position: center;
-  box-shadow: inset 0px 0px 20px 2px #000000;
-  border-radius: 2%;
+  height: 30vh;
+  border-radius: 10px;
 }
 
 .movie-details-poster {
   width: 25vh;
   height: auto;
-  align-self: center;
-  justify-self: center;
+  justify-self: end;
+  border-radius: 10px;
+  grid-column-start: 1;
 }
 
 h3 {
@@ -46,10 +47,67 @@ h3 {
 }
 
 .movie-details-p {
-  font-size: 16px;
+  font-size: 18px;
   text-align: start;
+  padding-bottom: 5px;
 }
 
 .movie-content {
   width: 100%;
+  padding-left: 15px;
+  padding-top: 5px;
+  line-height: 18px;
+}
+
+.star-container {
+  display: flex;
+  justify-content: flex-end;
+  grid-column-start: 3;
+}
+
+.unfavorite-button,
+.favorite-button {
+  height: 50px;
+  width: 50px;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.unfavorite-button,
+.favorite-button:hover {
+  transform: scale(1.25);
+  cursor: pointer;
+}
+
+.movie-details-title {
+  justify-self: center;
+  grid-column: 1 / 4;
+}
+
+.close-button {
+  background-color: #13181a;
+  color: white;
+  border-radius: 10px;
+  font-size: 24px;
+  border-color: 1px solid white;
+  font-family: Russo One;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  transform: scale(1.10);
+}
+
+.close-button-container {
+  grid-row-start: 5;
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
+
+.poster-content-container {
+  display: flex;
+  justify-self: center;
+  align-items: center;
+  grid-column: 1 / 4;
+  width: 70%;
 }
