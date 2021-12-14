@@ -56,7 +56,7 @@ describe('Box Office Deetz Test', () => {
 
     it('Should be able to load the correct movie details page given a specific URL', () => {
       cy.visit('http://localhost:3000/337401')
-        .get('div[class="movie-details-backdrop-img"]')
+        .get('img[class="movie-details-backdrop-img"]')
         .get('img[alt="Mulan poster"]')
         .get('div[class="movie-details-title"]')
         .contains('Mulan')
@@ -79,7 +79,7 @@ describe('Box Office Deetz Test', () => {
     it('Should be able to load the movie details page when the user hits refresh', () => {
       cy.visit('http://localhost:3000/337401')
         .reload()
-        .get('div[alt="Mulan backdrop img"]')
+        .get('img[alt="Mulan backdrop img"]')
         .get('img[alt="Mulan poster"]')
         .get('div[class="movie-details-title"]')
         .contains('Mulan')

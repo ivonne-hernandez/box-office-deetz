@@ -85,7 +85,7 @@ class MovieDetails extends React.Component {
               <img 
                 src={this.state.movie.backdrop_path} 
                 className="movie-details-backdrop-img"
-                alt="backdrop"
+                alt={this.state.movie.title + ` backdrop img`}
               />
             </div>
             <div className="movie-details-title">
@@ -107,7 +107,7 @@ class MovieDetails extends React.Component {
             </div>
             <div className="close-button-container">
               <button 
-                className="close-button movie-details-close-button" 
+                className="close-button" 
                 onClick={() => this.props.closeMovieDetails()}>
                 Back
               </button>
