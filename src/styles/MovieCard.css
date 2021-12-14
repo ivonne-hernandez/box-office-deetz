@@ -14,6 +14,10 @@
   border-radius: 10px;
 }
 
+.movieCardPoster:hover {
+  cursor: pointer;
+}
+
 .movieCardBackDrop {
   width: 20vh;
 }
@@ -34,6 +38,7 @@ p {
 
 .favorite-button:hover {
   transform: scale(1.25);
+  cursor: pointer;
 }
 
 .star-container {
