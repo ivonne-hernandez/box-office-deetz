@@ -9,7 +9,7 @@
   transform: scale(1.1);
 }
 
-.movieCardPoster {
+.movie-card-poster {
   width: 20vh;
   border-radius: 10px;
 }
@@ -27,23 +27,16 @@ p {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-.favorite-button {
+.favorite-button, .unfavorite-button {
   height: 40px;
   width: 40px;
 }
 
-.favorite-button:hover {
+.favorite-button, .unfavorite-button:hover {
   transform: scale(1.25);
 }
 
-.unfavorite-button {
-  height: 40px;
-  width: 40px;
-}
 
-.unfavorite-button:hover {
-  transform: scale(1.25);
-}
 
 .star-container {
   display: flex;
