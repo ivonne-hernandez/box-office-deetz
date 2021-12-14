@@ -253,9 +253,12 @@ describe('Box Office Deetz Test', () => {
         }
       })
       .visit('http://localhost:3000/337401')
-    })
-
-
-
+      .get('img[class="favorite-button"]')
+      .click()
+      .get('img[class="unfavorite-button"]')
+      .click()
+      .visit('http://localhost:3000/favorites')
+      .contains('add it to your Favorites list')
+    })  
 
   });
