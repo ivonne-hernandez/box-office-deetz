@@ -4,7 +4,7 @@ import star from '../styles/star.svg';
 import '../styles/Favorite.css';
 
 const Favorites = ({ movies, addFavorite, deleteFavorite }) =>  {
-  const favoriteMovies = movies.filter(movie => movie.favorite)
+  const favoriteMovies = movies.filter(movie => movie.favorite);
 
   const favoriteMovieCards = favoriteMovies.map(movie => {
     return (
@@ -33,7 +33,7 @@ const Favorites = ({ movies, addFavorite, deleteFavorite }) =>  {
       : <main className="movie-container fave-movie-container">
           {favoriteMovieCards}
         </main>
-  )
+  );
 }
 
 export default Favorites;

@@ -13,8 +13,7 @@ class App extends Component {
     super();
     this.state = {
       movies: [],
-      error: null,
-      isLoading: true
+      error: null
     }
   }
 
@@ -29,10 +28,10 @@ class App extends Component {
           movie.favorite = favoritedMovies.includes(movie.id);
           return movie;
         })
-          this.setState({ movies: moviesWithFaves, isLoading: false})
+          this.setState({ movies: moviesWithFaves })
         })
         .catch(error => {
-          this.setState({error: error.message});
+          this.setState({ error: error.message });
         });
   }
 
@@ -49,7 +48,7 @@ class App extends Component {
         return data;
       })
       .catch(error => {
-        this.setState({error: error.message});
+        this.setState({ error: error.message });
       });
   }
 
@@ -82,7 +81,6 @@ class App extends Component {
           <Route path="/" element={
             <Home 
               movies={this.state.movies} 
-              isLoading={this.state.isLoading} 
               addFavorite={this.addFavorite} 
               deleteFavorite={this.deleteFavorite}
             />
@@ -96,8 +94,7 @@ class App extends Component {
           }
           />
           <Route path="/favorites" element={<Favorites
-              movies={this.state.movies} 
-              isLoading={this.state.isLoading} 
+              movies={this.state.movies}
               addFavorite={this.addFavorite} 
               deleteFavorite={this.deleteFavorite}
            />
@@ -107,7 +104,6 @@ class App extends Component {
       </div>
     );
   }
-
 }
 
 export default App;

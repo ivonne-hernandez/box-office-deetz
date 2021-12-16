@@ -1,8 +1,8 @@
 import React from 'react';
 import MoviesContainer from './MoviesContainer';
 
-const Home = ({ movies, addFavorite, isLoading, deleteFavorite }) => {
-  if (isLoading) {
+const Home = ({ movies, addFavorite, deleteFavorite }) => {
+  if (movies.length === 0) {
     return (
       <div>Loading...</div>
     );
