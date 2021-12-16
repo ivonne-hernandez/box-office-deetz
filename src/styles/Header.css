@@ -11,6 +11,11 @@ h1 {
   grid-column-start: 1;
   grid-column-end: 3;
   text-shadow: -4px -2px #2e393f;
+  padding-left: 10px;
+}
+
+h1:hover {
+  transform: scale(1.03);
 }
 
 .home-link, .favorite-movies-link {
@@ -20,6 +25,6 @@ h1 {
 }
 
 .home-link:hover, .favorite-movies-link:hover {
-  transform: scale(1.1);
-  color: #f1613a;
+  transform: scale(1.05);
+  color: #588abb;
 }
