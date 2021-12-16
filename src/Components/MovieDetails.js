@@ -1,6 +1,7 @@
 import React from 'react';
 import '../styles/MovieDetails.css';
 import { fetchFavoriteMovies, fetchSingleMovie } from '../api-Calls';
+import Error from './Error';
 import star from '../styles/star.svg';
 import faveStar from '../styles/faveStar.svg';
 
@@ -9,7 +10,6 @@ class MovieDetails extends React.Component {
     super();
     this.state = {
       movie: null,
-      isLoading: true,
       error: null
     }
   }
@@ -23,7 +23,7 @@ class MovieDetails extends React.Component {
         const favoritedMovies = data[1].faves;
         const singleMovie = data[0].movie;
         singleMovie.favorite = favoritedMovies.includes(singleMovie.id);
-        this.setState({ movie: singleMovie, isLoading: false});
+        this.setState({ movie: singleMovie });
       })
       .catch(error => {
         this.setState({error: error.message})
@@ -62,7 +62,13 @@ class MovieDetails extends React.Component {
   }
 
   render = () => {
-    if (this.state.movie && !this.state.isLoading) {
+    if (this.state.error) {
+      return (
+        <Error error={this.state.error} />
+      )
+    }
+    
+    if (this.state.movie) {
       return (
           <div className="movie-details">
             <article className="movie-details-window">
