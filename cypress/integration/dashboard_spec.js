@@ -16,6 +16,11 @@ describe('Box Office Deetz Test', () => {
         .contains('Box Office Deetz')
     });
 
+    it('As a user, I should be able to click on the header and be navigated to the homepage', () => {
+      cy.get('h1[class="headerTitle"]').click()
+        .url('http://localhost:3000')
+    });
+
     it('should have a container component for all movie cards', () => {
       cy.get('main[class="movie-container"]')
         .children('article[class="movie-card"]')
