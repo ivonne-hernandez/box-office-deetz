@@ -9,6 +9,7 @@ const Header = () => {
   return (
     <div className='header'>
       <h1
+        className='headerTitle'
         onClick={() => navigate("/")}>
       Box Office Deetz
       </h1>
@@ -19,3 +20,4 @@ const Header = () => {
 }
 
 export default Header;
+

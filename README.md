@@ -30,6 +30,7 @@ Mod3 2108 FE
    - The project spec & rubric can be found [here](https://frontend.turing.edu/projects/module-3/rancid-tomatillos-v3.html)
 
 
+<img width="1436" alt="Screen Shot 2021-12-13 at 8 22 57 PM" src="https://user-images.githubusercontent.com/87510749/145922898-42608d90-65b2-48e2-ae90-d1997e0991a8.png">
 
 
 
@@ -40,11 +41,24 @@ Mod3 2108 FE
   
   From the home page, a user can browse the list of available movies and can click on a specific movie's poster to view more details about that movie, or can click on the star icon on the top right of the card to 'Favorite' or 'Unfavorite' that movie. The user is also able to 'Favorite' or 'Unfavorite' movies directly from the movie details page. 
   
+  <img width="1436" alt="Screen Shot 2021-12-13 at 8 23 23 PM" src="https://user-images.githubusercontent.com/87510749/145923108-a9ddebc6-6cae-4c21-a372-3474c70c283d.png">
+
+  
   The user has access to a 'Favorites' page, where any movies that have been favorited by the user will appear. This information is stored in the **[express server](https://github.com/colganmeanor/box-office-deetz-API)**, which allows the user the ability to refresh the page, or leave and browse back again, and the same movies favorited during their session will remain favorited. NOTE: Disrupting connection to the express server will disrupt the ability to use the application, and the server must be restarted in order to continue browsing the app. 
+
+<img width="1057" alt="Screen Shot 2021-12-13 at 8 27 59 PM" src="https://user-images.githubusercontent.com/87510749/145923119-7df79a75-1b81-4207-981c-65de1f708389.png">
+
+**Favoriting a Movie**
+
+https://user-images.githubusercontent.com/87510749/145923854-92583a96-9d37-4077-916f-2e8676b73367.mov
+
+**Unfavoriting Movies**
+
+https://user-images.githubusercontent.com/87510749/145924056-0eb389bd-39a5-42b5-a44b-e51611300280.mov
 
 
   The goal of this project was to build an application using the React Framework, using functional and class based components to keep the DOM updated with the data model / state of the application. This project was created using the 'creat-react-app' npx command line, and built out from there. 
-
+  
 
 ## Architecture
 
@@ -52,7 +66,7 @@ Mod3 2108 FE
 
   The data pulled from the heroku server is then saved in State to App.js, and passed down via props as necessary to children components. In addition to the Heroku server, data can be pulled from and POSTED to an express server / API built specifically for Box Office Deetz, by our own team. 
   
-  When a user clicks the star to favorite a movie, a POST request is sent to the API to save the movie in the list of favorites that the API holds. When the user unfavorites a movie, a delete request is sent to the API to remove that specific movie's ID from the API's data. Any time a new page loads in the application, the app gets all the current favorite data from the API to ensure that the movie's shown as favorited or unfavorited are kept up to data. 
+  When a user clicks the star to favorite a movie, a POST request is sent to the API to save the movie in the list of favorites that the API holds. When the user unfavorites a movie, a delete request is sent to the API to remove that specific movie's ID from the API's data. Any time a new page loads in the application, the app gets all the current favorite data from the API to ensure that the movie's shown as favorited or unfavorited are kept up to date. 
 
 
 
@@ -83,5 +97,5 @@ Mod3 2108 FE
 
 ## Challenges + Improvements
   - One of our initial challenges in this project was that we had originally conceived of our Movie Details component/page as a Modal Window that popped up on the DOM. We ran across some complications with this choice when it came time to implement React Router to allow us to view different components at different paths. The issue here lied with the rendering of the details component as a modal window at a given path, and then also rendering the regular home page concent BEHIND the modal. In order to proceed with router, we decided to refactor the movie details component here to show as a regular page that is separate from the main/home page. This allowed us to have a much easier time configuring our Router tool and setting dynamic paths for details components based on the ID of the movie being selected.  
-  - For the final iteration of the project, we were tasked with a free choice of a new feature to implement to the application. Taking a cue from the spec, we decided to implement a Favorite Movie functionality to the app, that was built on top of a small express API. This was a huge challenge for us, that we weren't sure would be a viable path forward, but it allowed us to gain valuable experience in building our own API to help service the data model of our application. The moment that we successfully posted and recieved data inside our app, from the API, was magical. 
+  - For the final iteration of the project, we were tasked with a free choice of a new feature to implement to the application. Taking a cue from the spec, we decided to implement a Favorite Movie functionality to the app, that was built on top of a small express API. This was a huge challenge for us, that we weren't sure would be a viable path forward, but it allowed us to gain valuable experience in building our own API to help service the data model of our application. The moment that we successfully posted and received data inside our app, from the API, was magical. 
   - The implementation of Cypress Testing was a completely new challenge for both of us during this project. We had experience in TDD using Mocha and Chai in previous modules at Turing, but we got a great crash course in end-to-end and integration testing. Stubbing network requests and creating fixtures for cypress intercept proved to be our biggest hill to climb here, but once we figured out the correct syntax and rules, we were very quickly able to sketch out the rest of our testing for our user flows. 
