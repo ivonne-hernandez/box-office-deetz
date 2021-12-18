@@ -11,9 +11,8 @@ describe('Box Office Deetz Test', () => {
       cy.visit('http://localhost:3000');
     });
 
-    it('the header should contain the name of the application', () => {
-      cy.get('div[class="header"]')
-        .get('h1[class="headerTitle"]')
+    it('As a user, I should be able to visit the homepage and see the header', () => {
+      cy.get('h1[class="headerTitle"]')
         .contains('Box Office Deetz')
     });
 
