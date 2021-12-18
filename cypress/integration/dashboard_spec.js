@@ -18,18 +18,18 @@ describe('Box Office Deetz Test', () => {
       .contains('Box Office Deetz')
   });
 
-  it.only('As a user, I should be able to click on the header and be navigated to the homepage', () => {
+  it('As a user, I should be able to click on the header and be navigated to the homepage', () => {
     cy.get('h1[class="headerTitle"]').click()
     cy.url().should('eq', 'http://localhost:3000/')
   });
 
-  it('should have a container component for all movie cards', () => {
+  it('As a user, when I visit the homepage I should see movie cards displayed ', () => {
     cy.get('main[class="movie-container"]')
-      .children('article[class="movie-card"]')
-      .children('img')
-      .siblings('h2')
-      .siblings('p[class="movie-card-rating"]')
-      .siblings('p[class="movie-card-release-date"]')
+      .children('article[class="movie-card"]').should('have.length', 5)
+      .children('img').should('have.length', 5)
+      .siblings('h2').should('have.length', 5)
+      .siblings('p[class="movie-card-rating"]').should('have.length', 5)
+      .siblings('p[class="movie-card-release-date"]').should('have.length', 5)
   });
 
   it('Should be able to load a movieDetails page', () => {
