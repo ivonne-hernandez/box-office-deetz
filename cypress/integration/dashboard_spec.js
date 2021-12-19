@@ -62,15 +62,7 @@ describe('Box Office Deetz Test', () => {
       .go('back')
       .url().should('eq', 'http://localhost:3000/')
       .go('forward')
-      .url().should('eq', 'http://localhost:3000/337401')
-  });
-
-  it('Should be able to load the correct movie details page given a specific URL', () => {
-    cy.visit('http://localhost:3000/337401')
-      .get('img[class="movie-details-backdrop-img"]')
-      .get('img[alt="Mulan poster"]')
-      .get('div[class="movie-details-title"]')
-      .contains('Mulan')
+      .url().should('eq', 'http://localhost:3000/337401');
   });
 
   it('Should be able to load the home page when the user hits refresh', () => {
