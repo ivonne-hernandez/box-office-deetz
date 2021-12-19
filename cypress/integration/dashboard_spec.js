@@ -57,7 +57,7 @@ describe('Box Office Deetz Test', () => {
       .get('img[class="movie-details-backdrop-img"]').should('have.length', 1)
       .get('div[class="movie-content"]').contains("Mulan")
       .get('img[class="favorite-button"]').should('have.length', 1)
-      .get('button[class="close-button"]').should('have.length', 1);
+      .get('button[class="close-button"]').should('have.length', 1)
   });
 
   it('As a user, I should be able to click the Back button in the Movie Details page to return to the Home page', () => {
@@ -67,24 +67,17 @@ describe('Box Office Deetz Test', () => {
       .url().should('eq','http://localhost:3000/');
   });
 
-  it('As a user, when I click on a movie poster and go back or forward using the browser buttons, I will be navigated to the previously selected path', () => {
+  it.only('As a user, when I click on a movie poster and go back, forward or refresh using the browser buttons, I will be navigated to the previously selected path', () => {
     cy.get('article[id=337401]')
       .click()
       .url().should('eq', 'http://localhost:3000/337401')
       .go('back')
       .url().should('eq', 'http://localhost:3000/')
       .go('forward')
-      .url().should('eq', 'http://localhost:3000/337401');
+      .url().should('eq', 'http://localhost:3000/337401')
+      .reload().url().should('eq', 'http://localhost:3000/337401');
   });
 
-  it('Should be able to load the movie details page when the user hits refresh', () => {
-    cy.visit('http://localhost:3000/337401')
-      .reload()
-      .get('img[alt="Mulan backdrop img"]')
-      .get('img[alt="Mulan poster"]')
-      .get('div[class="movie-details-title"]')
-      .contains('Mulan')
-  });
 
   it('Should be able to show that the star changes colors when a user favorites a movie from the home page', () => {
     cy.get('article[id=337401]')
