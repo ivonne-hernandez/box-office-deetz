@@ -28,7 +28,7 @@ describe('Box Office Deetz Test', () => {
   });
 
   it('As a user, when I visit the homepage and hit refresh, I should still see the same content that was previously displayed', () => {
-    cy.reload()
+    cy.reload();
     
     cy.get('main[class="movie-container"]').should('have.length', 1)
     .children('article[class="movie-card"]').should('have.length', 5)
@@ -36,7 +36,6 @@ describe('Box Office Deetz Test', () => {
     .siblings('h2').should('have.length', 5)
     .siblings('p[class="movie-card-rating"]').should('have.length', 5)
     .siblings('p[class="movie-card-release-date"]').should('have.length', 5);
-      
   });
 
   it('As a user, I should be able to click on a movie poster and be navigated to the movieDetails page which contains the movie title, poster, backdrop, movie details, favorite and back buttons', () => {
@@ -73,15 +72,21 @@ describe('Box Office Deetz Test', () => {
       .reload().url().should('eq', 'http://localhost:3000/337401');
   });
 
-
-  it('Should be able to show that the star changes colors when a user favorites a movie from the home page', () => {
+  it('As a user, when I visit the homepage and click on the star of a movie card, I should see that a previously white star is now orange and vice versa', () => {
     cy.get('article[id=337401]')
-    .children('div')
-    .children('img[class="favorite-button"]')
-    .click()
-    .get('article[id=337401]')
-    .children('div')
-    .children('img[class="unfavorite-button"]')
+    .children('div[class="star-container"]')
+    .children('img[class="favorite-button"]').should('have.class', "favorite-button")
+    .click();
+
+    cy.get('article[id=337401]')
+    .children('div[class="star-container"]')
+    .children('img[class="unfavorite-button"]').should('have.class', "unfavorite-button")
+    .click();
+
+    cy.get('article[id=337401]')
+    .children('div[class="star-container"]')
+    .children('img[class="favorite-button"]').should('have.class', "favorite-button");
+ 
   });
 
   it('Should be able to show a message on the favorites page if the user does not have any favorited movies', () => {
