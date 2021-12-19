@@ -101,27 +101,16 @@ describe('Box Office Deetz Test', () => {
       .url().should('eq', 'http://localhost:3000/');
   });
 
-  it('Should be able to favorite a movie on the homepage and navigate to the favorites page and see the movie that was favorited.', () => {
+  it('As a user, when I favorite a movie(s) on the homepage and click on the Favorite Movies link, I will be navigated to the favorites page and see the favorited movie(s) displayed.', () => {
     cy.get('article[id=337401]')
     .children('div')
-    .children('img[class="favorite-button"]')
-    .click()
-    .intercept('POST', '/api/v1/favorite-movies', {
-      body: {
-        id: '337401'
-      }
-    })
-    .intercept('GET', '/api/v1/favorite-movies', {
-      body: {
-        faves: ['337401']
-      }
-    })
-    .get('div[class="header"]')
-    .contains('Favorite Movies')
-    .click()
-    .get('main[class="movie-container fave-movie-container"]')
+    .children('img[class="favorite-button"]').should('have.class', "favorite-button").click()
+    .should('have.class', "unfavorite-button")
+    .get('a[class="favorite-movies-link"]').contains("Favorite Movies").click()
+    .get('main[class="movie-container"]').should('have.length', 1)
     .get('article[id=337401]')
-
+    .children('div[class="star-container"]')
+    .children('img[class="unfavorite-button"]').should('have.class', "unfavorite-button")
   });
 
   it('Should be able to visit the favorites page, unfavorite a movie card, and that movie card should no longer be present on the page.', () => {
