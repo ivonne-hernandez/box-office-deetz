@@ -24,7 +24,7 @@ describe('Box Office Deetz Test', () => {
   });
 
   it('As a user, when I visit the homepage I should see movie cards displayed ', () => {
-    cy.get('main[class="movie-container"]')
+    cy.get('main[class="movie-container"]').should('have.length', 1)
       .children('article[class="movie-card"]').should('have.length', 5)
       .children('img').should('have.length', 5)
       .siblings('h2').should('have.length', 5)
@@ -32,15 +32,20 @@ describe('Box Office Deetz Test', () => {
       .siblings('p[class="movie-card-release-date"]').should('have.length', 5)
   });
 
-  it('Should be able to load a movieDetails page', () => {
+  it.only('As a user, I should be able to click on a movie poster and be navigated to the movieDetails page which contains the movie title, poster, backdrop, movie details, favorite and back buttons', () => {
+    cy.intercept('GET', '/api/v2/movies/337401', {
+      fixture: 'sampleMovie.json'
+    })
+      
     cy.get('article[id=337401]')
       .click()
-      .intercept('GET', '/api/v2/movies/337401', {
-          fixture: 'sampleMovie.json'
-      })
-      .get('article[class="movie-details-window"]')
-      .get('div[class="movie-content"]')
-      .contains("Mulan")
+      .url().should('eq', 'http://localhost:3000/337401')
+      .get('div[class="movie-details-title"]').contains("Mulan")
+      .get('img[class="movie-details-poster"]').should('have.length', 1)
+      .get('img[class="movie-details-backdrop-img"]').should('have.length', 1)
+      .get('div[class="movie-content"]').contains("Mulan")
+      .get('img[class="favorite-button"]').should('have.length', 1)
+      .get('button[class="close-button"]').should('have.length', 1)
   });
 
   it('Should be able to click the close button in the Movie Details page and return to the Home page', () => {
