@@ -20,7 +20,7 @@ describe('Box Office Deetz Test', () => {
 
   it('As a user, I should be able to click on the header and be navigated to the homepage', () => {
     cy.get('h1[class="headerTitle"]').click()
-    cy.url().should('eq', 'http://localhost:3000/');
+      .url().should('eq', 'http://localhost:3000/');
   });
 
   it('As a user, when I visit the homepage I should see movie cards displayed ', () => {
@@ -30,6 +30,18 @@ describe('Box Office Deetz Test', () => {
       .siblings('h2').should('have.length', 5)
       .siblings('p[class="movie-card-rating"]').should('have.length', 5)
       .siblings('p[class="movie-card-release-date"]').should('have.length', 5);
+  });
+
+  it('As a user, when I visit the homepage and hit refresh, I should still see the same content that was previously displayed', () => {
+    cy.reload()
+    
+    cy.get('main[class="movie-container"]').should('have.length', 1)
+    .children('article[class="movie-card"]').should('have.length', 5)
+    .children('img').should('have.length', 5)
+    .siblings('h2').should('have.length', 5)
+    .siblings('p[class="movie-card-rating"]').should('have.length', 5)
+    .siblings('p[class="movie-card-release-date"]').should('have.length', 5);
+      
   });
 
   it('As a user, I should be able to click on a movie poster and be navigated to the movieDetails page which contains the movie title, poster, backdrop, movie details, favorite and back buttons', () => {
@@ -63,20 +75,6 @@ describe('Box Office Deetz Test', () => {
       .url().should('eq', 'http://localhost:3000/')
       .go('forward')
       .url().should('eq', 'http://localhost:3000/337401');
-  });
-
-  it('Should be able to load the home page when the user hits refresh', () => {
-    cy.reload()
-      .get('div[class="header"]')
-      .get('img')
-      .get('h1[class="headerTitle"]')
-      .contains('Box Office Deetz')
-      .get('main[class="movie-container"]')
-      .children('article[class="movie-card"]')
-      .children('img[alt="Mulan poster"]')
-      .siblings('h2')
-      .siblings('p[class="movie-card-rating"]')
-      .siblings('p[class="movie-card-release-date"]')
   });
 
   it('Should be able to load the movie details page when the user hits refresh', () => {
