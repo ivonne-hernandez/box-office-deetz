@@ -55,14 +55,14 @@ describe('Box Office Deetz Test', () => {
       .url().should('eq','http://localhost:3000/');
   });
 
-  it('Should be able to click on the back and forward buttons in the browser to navigate to previously selected paths', () => {
+  it('As a user, when I click on a movie poster and go back or forward using the browser buttons, I will be navigated to the previously selected path', () => {
     cy.get('article[id=337401]')
       .click()
-      .url('http://localhost:3000/337401')
+      .url().should('eq', 'http://localhost:3000/337401')
       .go('back')
-      .url('http://localhost:3000')
+      .url().should('eq', 'http://localhost:3000/')
       .go('forward')
-      .url('http://localhost:3000/337401')
+      .url().should('eq', 'http://localhost:3000/337401')
   });
 
   it('Should be able to load the correct movie details page given a specific URL', () => {
