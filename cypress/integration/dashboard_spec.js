@@ -13,11 +13,6 @@ describe('Box Office Deetz Test', () => {
     cy.visit('http://localhost:3000');
   });
 
-  it('As a user, I should be able to visit the homepage and see the header', () => {
-    cy.get('h1[class="headerTitle"]')
-      .contains('Box Office Deetz');
-  });
-
   it('As a user, I should be able to click on the header and be navigated to the homepage', () => {
     cy.get('h1[class="headerTitle"]').click()
       .url().should('eq', 'http://localhost:3000/');
@@ -67,7 +62,7 @@ describe('Box Office Deetz Test', () => {
       .url().should('eq','http://localhost:3000/');
   });
 
-  it.only('As a user, when I click on a movie poster and go back, forward or refresh using the browser buttons, I will be navigated to the previously selected path', () => {
+  it('As a user, when I click on a movie poster and go back, forward or refresh using the browser buttons, I will be navigated to the previously selected path', () => {
     cy.get('article[id=337401]')
       .click()
       .url().should('eq', 'http://localhost:3000/337401')
