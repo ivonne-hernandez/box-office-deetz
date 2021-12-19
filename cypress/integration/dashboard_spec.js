@@ -15,12 +15,12 @@ describe('Box Office Deetz Test', () => {
 
   it('As a user, I should be able to visit the homepage and see the header', () => {
     cy.get('h1[class="headerTitle"]')
-      .contains('Box Office Deetz')
+      .contains('Box Office Deetz');
   });
 
   it('As a user, I should be able to click on the header and be navigated to the homepage', () => {
     cy.get('h1[class="headerTitle"]').click()
-    cy.url().should('eq', 'http://localhost:3000/')
+    cy.url().should('eq', 'http://localhost:3000/');
   });
 
   it('As a user, when I visit the homepage I should see movie cards displayed ', () => {
@@ -29,13 +29,13 @@ describe('Box Office Deetz Test', () => {
       .children('img').should('have.length', 5)
       .siblings('h2').should('have.length', 5)
       .siblings('p[class="movie-card-rating"]').should('have.length', 5)
-      .siblings('p[class="movie-card-release-date"]').should('have.length', 5)
+      .siblings('p[class="movie-card-release-date"]').should('have.length', 5);
   });
 
-  it.only('As a user, I should be able to click on a movie poster and be navigated to the movieDetails page which contains the movie title, poster, backdrop, movie details, favorite and back buttons', () => {
+  it('As a user, I should be able to click on a movie poster and be navigated to the movieDetails page which contains the movie title, poster, backdrop, movie details, favorite and back buttons', () => {
     cy.intercept('GET', '/api/v2/movies/337401', {
       fixture: 'sampleMovie.json'
-    })
+    });
       
     cy.get('article[id=337401]')
       .click()
@@ -45,14 +45,14 @@ describe('Box Office Deetz Test', () => {
       .get('img[class="movie-details-backdrop-img"]').should('have.length', 1)
       .get('div[class="movie-content"]').contains("Mulan")
       .get('img[class="favorite-button"]').should('have.length', 1)
-      .get('button[class="close-button"]').should('have.length', 1)
+      .get('button[class="close-button"]').should('have.length', 1);
   });
 
-  it('Should be able to click the close button in the Movie Details page and return to the Home page', () => {
+  it('As a user, I should be able to click the Back button in the Movie Details page to return to the Home page', () => {
     cy.visit('http://localhost:3000/337401')
       .get('button[class="close-button"]')
       .click()
-      .url('http://localhost:3000')
+      .url().should('eq','http://localhost:3000/');
   });
 
   it('Should be able to click on the back and forward buttons in the browser to navigate to previously selected paths', () => {
