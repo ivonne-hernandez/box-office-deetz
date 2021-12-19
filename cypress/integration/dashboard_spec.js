@@ -89,23 +89,16 @@ describe('Box Office Deetz Test', () => {
  
   });
 
-  it('Should be able to show a message on the favorites page if the user does not have any favorited movies', () => {
-    cy.intercept('GET', '/api/v1/favorite-movies', {
-      body: {
-        faves: []
-      }
-    })
-    .get('div[class="header"]')
-    .contains('Favorite Movies')
-    .click()
-    .intercept('GET', '/api/v1/favorite-movies', {
-      body: {
-        faves: []
-      }
-    })
-    .url('http://localhost:3000/favorites')
-    .get('div[class="no-favorites"]')
-    
+  it('As a user, if I haven\'t favorited any movies, when I click the Favorite Movies link I will be navigated to the favorites page where I will see a message that tells me to start favoriting movies and the Favorite Movies link is now a Home link', () => {
+    cy.url().should('eq', "http://localhost:3000/")
+      .get('a[class="favorite-movies-link"]').contains("Favorite Movies")
+      .click()
+      .url().should('eq', 'http://localhost:3000/favorites')
+      .get('div[class="no-favorites"]').children().should('have.length', 3);
+
+    cy.get('a[class="home-link"]').contains("Home")
+      .click()
+      .url().should('eq', 'http://localhost:3000/');
   });
 
   it('Should be able to favorite a movie on the homepage and navigate to the favorites page and see the movie that was favorited.', () => {
