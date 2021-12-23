@@ -101,7 +101,7 @@ describe('Box Office Deetz Test', () => {
       .url().should('eq', 'http://localhost:3000/');
   });
 
-  it('As a user, when I favorite a movie(s) on the homepage and click on the Favorite Movies link, I will be navigated to the favorites page and see the favorited movie(s) displayed.', () => {
+  it('As a user, when I favorite a movie on the homepage and click on the Favorite Movies link, I will be navigated to the favorites page and see the favorited movie displayed.', () => {
     cy.get('article[id=337401]')
     .children('div')
     .children('img[class="favorite-button"]').should('have.class', "favorite-button").click()
@@ -113,20 +113,22 @@ describe('Box Office Deetz Test', () => {
     .children('img[class="unfavorite-button"]').should('have.class', "unfavorite-button")
   });
 
-  it('Should be able to visit the favorites page, unfavorite a movie card, and that movie card should no longer be present on the page.', () => {
-    cy.get('article[id=337401]')
-    .children('div')
-    .children('img[class="favorite-button"]')
-    .click()
-    .get('div[class="header"]')
-    .contains('Favorite Movies')
-    .click()
-    .intercept('GET', '/api/v1/favorite-movies', {
+  it('As a user, I should be able to visit the Favorite Movies page and unfavorite a movie card which will remove the unfavorited movie from the page.', () => {
+    cy.intercept('GET', '/api/v1/favorite-movies', {
       body: {
         faves: ['337401']
       }
     })
-    .get('main[class="movie-container fave-movie-container"]')
+    cy.get('article[id=337401]')
+    .children('div')
+    .children('img[class="favorite-button"]').should('have.class', "favorite-button").click()
+    .should('have.class', "unfavorite-button")
+
+    .get('div[class="header"]')
+    .contains('Favorite Movies')
+    .click()
+    
+    .get('main[class="movie-container"]')
     .get('article[id=337401]')
     .children('div')
     .children('img[class="unfavorite-button"]')
@@ -136,7 +138,7 @@ describe('Box Office Deetz Test', () => {
         faves: []
       }
     })
-    .get('div[class="no-favorites"]')
+    .get('div[class="no-favorites"]').contains("icon on a Movie to add it to your Favorites list.")
   });
   
   it('Should be able to unfavorite a movie from the favorites page, return to the homepage, and see that the movie is no longer favorited.', () => {
