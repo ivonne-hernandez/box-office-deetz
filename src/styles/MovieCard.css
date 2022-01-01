@@ -1,15 +1,15 @@
-.movieCard {
+.movie-card {
   background-image: linear-gradient(180deg, #1d2a30, #1d2326);
   border-radius: 10px;
   padding-bottom: 30px;
   border: 1px solid black;
 }
 
-.movieCard:hover {
+.movie-card:hover {
   transform: scale(1.1);
 }
 
-.movieCardPoster {
+.movie-card-poster {
   width: 20vh;
   border-radius: 10px;
 }
@@ -31,15 +31,17 @@ p {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-.favorite-button {
+.favorite-button, .unfavorite-button {
   height: 40px;
   width: 40px;
 }
 
-.favorite-button:hover {
+.favorite-button, .unfavorite-button:hover {
   transform: scale(1.25);
   cursor: pointer;
 }
+
+
 
 .star-container {
   display: flex;
