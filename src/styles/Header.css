@@ -11,18 +11,20 @@ h1 {
   grid-column-start: 1;
   grid-column-end: 3;
   text-shadow: -4px -2px #2e393f;
+  padding-left: 10px;
 }
 
-.clapper {
-  grid-column-start: 4;
-  grid-column-end: 4;
-  height: 100px;
-  width: 100px;
-  justify-self: center;
+h1:hover {
+  transform: scale(1.03);
 }
 
-input {
-  height: 30px;
-  width: 60%;
-  justify-self: right;
+.home-link, .favorite-movies-link {
+  color: white;
+  text-decoration: none;
+  font-size: 26px;
+}
+
+.home-link:hover, .favorite-movies-link:hover {
+  transform: scale(1.05);
+  color: #588abb;
 }

@@ -1,21 +1,19 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom'
-import '../styles/Header.css'
-import {useLocation} from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import '../styles/Header.css';
 
-
-
-function Header() {
-
-  const location = useLocation()
-
-  let headerLink  
-  location.pathname === '/favorites' ? headerLink = <NavLink className='nav-link' to="/">Home</NavLink> : headerLink = <NavLink className='nav-link' to="/favorites">Favorite Movies</NavLink>
+const Header = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
 
   return (
     <div className='header'>
-      <h1 className='headerTitle'>Box Office Deetz</h1>
-      {headerLink}
+      <h1
+        onClick={() => navigate("/")}>
+      Box Office Deetz
+      </h1>
+      {location.pathname === "/favorites" ? <Link to="/" className="home-link">Home</Link> : 
+        <Link to="/favorites" className="favorite-movies-link">Favorite Movies</Link>}
     </div>
   )
 }
