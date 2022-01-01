@@ -113,12 +113,13 @@ describe('Box Office Deetz Test', () => {
     .children('img[class="unfavorite-button"]').should('have.class', "unfavorite-button")
   });
 
-  it('As a user, I should be able to visit the Favorite Movies page and unfavorite a movie card which will remove the unfavorited movie from the page.', () => {
+  it('As a user, I should be able to visit the Favorite Movies page and unfavorite a movie card which will remove the unfavorited movie from the Favorite Movies page as well as the homepage.', () => {
     cy.intercept('GET', '/api/v1/favorite-movies', {
       body: {
         faves: ['337401']
       }
     })
+    
     cy.get('article[id=337401]')
     .children('div')
     .children('img[class="favorite-button"]').should('have.class', "favorite-button").click()
@@ -139,36 +140,14 @@ describe('Box Office Deetz Test', () => {
       }
     })
     .get('div[class="no-favorites"]').contains("icon on a Movie to add it to your Favorites list.")
+
+    cy.visit('http://localhost:3000/')
+      .get('article[id=337401]')
+      .children('div')
+      .children('img[class="favorite-button"]').should('have.class', "favorite-button")
   });
   
-  it('Should be able to unfavorite a movie from the favorites page, return to the homepage, and see that the movie is no longer favorited.', () => {
-    cy.get('article[id=337401]')
-    .children('div')
-    .children('img[class="favorite-button"]')
-    .click()
-    .intercept('GET', '/api/v1/favorite-movies', {
-      body: {
-        faves: ['337401']
-      }
-    })
-    .get('div[class="header"]')
-    .contains('Favorite Movies')
-    .click()
-    .get('article[id=337401]')
-    .children('div')
-    .children('img[class="unfavorite-button"]')
-    .click()
-    .get('div[class="header"]')
-    .contains('Home')
-    .click()
-    .get('article[id=337401]')
-    .children('div')
-    .children('img[class="favorite-button"]')
-
-
-  });
-
-  it('Should be able to unfavorite a movie from the movie details page, return to the homepage, and see that the movie is no longer favorited.', () => {
+  it.only('Should be able to unfavorite a movie from the movie details page, return to the homepage, and see that the movie is no longer favorited.', () => {
     cy.intercept('POST', '/api/v1/favorite-movies', {
       body: {
         id: '337401'

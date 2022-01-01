@@ -30,7 +30,7 @@ const Favorites = ({ movies, addFavorite, deleteFavorite }) =>  {
         <img src={star} alt="star" className="no-favorites-star"/> 
         <span className="no-favorites-p2"> icon on a Movie to add it to your Favorites list.</span>
       </div>
-      : <main className="movie-container fave-movie-container">
+      : <main className="movie-container">
           {favoriteMovieCards}
         </main>
   );
