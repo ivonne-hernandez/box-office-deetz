@@ -19,7 +19,7 @@ const fetchSingleMovie = (id) => {
 }
 
 const fetchFavoriteMovies = () => {
-  return fetch(`http://localhost:3001/api/v1/favorite-movies`)
+  return fetch(`https://serene-mountain-56380.herokuapp.com/api/v1/favorite-movies`)
     .then(response => {
       if(!response.ok) {
         throw new Error(`${response.status} ${response.statusText}`);
@@ -29,7 +29,7 @@ const fetchFavoriteMovies = () => {
 }
 
 const postFavoriteMovie = (newMovie) => {
-  return fetch('http://localhost:3001/api/v1/favorite-movies', {
+  return fetch('https://serene-mountain-56380.herokuapp.com/api/v1/favorite-movies', {
     method: 'POST',
     body: JSON.stringify(newMovie),
     headers: {
@@ -45,7 +45,7 @@ const postFavoriteMovie = (newMovie) => {
 }
 
 const deleteFavoriteMovie = (id) => {
-  return fetch(`http://localhost:3001/api/v1/favorite-movies/${id}`, {
+  return fetch(`https://serene-mountain-56380.herokuapp.com/api/v1/favorite-movies/${id}`, {
     method: 'DELETE'})
     .then(response => {
       if(!response.ok) {
